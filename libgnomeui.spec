@@ -1,28 +1,28 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.9.2
+Version:	2.10.0
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	1a7002613a3f553126f356fd163efbd6
+Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	e17c0d97e5f240513ac2d36268d696ed
 Patch0:		%{name}-threads.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.9.2
+BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	audiofile-devel >= 1:0.2.3
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 1:0.2.31
 BuildRequires:	gnome-common >= 2.8.0
-BuildRequires:	gnome-keyring-devel >= 0.4.1
-BuildRequires:	gnome-vfs2-devel >= 2.9.92
+BuildRequires:	gnome-keyring-devel >= 0.4.2
+BuildRequires:	gnome-vfs2-devel >= 2.10.0
 BuildRequires:	gtk-doc >= 1.1
 BuildRequires:	gtk+2-devel >= 2:2.6.3
 BuildRequires:	libbonoboui-devel >= 2.8.1
 BuildRequires:	libglade2-devel >= 1:2.5.0
-BuildRequires:	libgnome-devel >= 2.9.1
-BuildRequires:	libgnomecanvas-devel >= 2.9.2
+BuildRequires:	libgnome-devel >= 2.10.0
+BuildRequires:	libgnomecanvas-devel >= 2.10.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.8.0
@@ -54,16 +54,16 @@ Summary:	Headers for libgnomeui
 Summary(pl):	Pliki nag³ówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.9.2
+Requires:	GConf2-devel >= 2.10.0
 Requires:	esound-devel >= 1:0.2.31
-Requires:	gnome-vfs2-devel >= 2.9.92
-Requires:	gnome-keyring-devel >= 0.4.1
+Requires:	gnome-vfs2-devel >= 2.10.0
+Requires:	gnome-keyring-devel >= 0.4.2
 Requires:	gtk-doc-common
 Requires:	gtk+2-devel >= 2:2.6.3
 Requires:	libbonoboui-devel >= 2.8.1
 Requires:	libglade2-devel >= 1:2.5.0
-Requires:	libgnome-devel >= 2.9.1
-Requires:	libgnomecanvas-devel >= 2.9.2
+Requires:	libgnome-devel >= 2.10.0
+Requires:	libgnomecanvas-devel >= 2.10.0
 Requires:	libjpeg-devel
 
 %description devel
