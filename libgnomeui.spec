@@ -98,10 +98,14 @@ rm -d missing
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_datadir}/gnome/help
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
+
+# no static modules
+rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.a
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -116,9 +120,13 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/gnome_segv2
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%{_libdir}/libglade/2.0/*.la
 %attr(755,root,root) %{_libdir}/libglade/2.0/*.so
+%{_libdir}/libglade/2.0/*.la
 %{_pixmapsdir}/*
+# it seems that every package that uses %{_datadir}/gnome tree requires
+# libgnomeui - so added these directories to this package
+%dir %{_datadir}/gnome
+%dir %{_datadir}/gnome/help
 
 %files devel
 %defattr(644,root,root,755)
@@ -131,4 +139,3 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
-%{_libdir}/libglade/2.0/*.a
