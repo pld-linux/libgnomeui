@@ -13,6 +13,7 @@
 %define libglade2_version 1.99.5.90
 
 Summary:	GNOME base GUI library
+Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	1.110.0
 Release:	1
@@ -29,7 +30,7 @@ Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/libgnomeui/%{name}-%{v
 URL:		http://www.gnome.org/
 Requires:	ORBit2 >= %{orbit2_version}
 Requires:	glib2 >= %{glib2_version}
-Requires:	gtk2 >= %{gtk2_version}
+Requires:	gtk+2 >= %{gtk2_version}
 Requires:	GConf2 >= %{gconf2_version} 
 Requires:	gnome-vfs2 >= %{gnome_vfs2_version}
 Requires:	libgnomecanvas >= %{libgnomecanvas_version}
@@ -44,7 +45,7 @@ BuildRequires:	zlib-devel
 BuildRequires:	esound-devel
 BuildRequires:	ORBit2-devel >= %{orbit2_version}
 BuildRequires:	glib2-devel >= %{glib2_version}
-BuildRequires:	gtk2-devel >= %{gtk2_version}
+BuildRequires:	gtk+2-devel >= %{gtk2_version}
 BuildRequires:	GConf2-devel >= %{gconf2_version} 
 BuildRequires:	gnome-vfs2-devel >= %{gnome_vfs2_version}
 BuildRequires:	libgnomecanvas-devel >= %{libgnomecanvas_version}
@@ -68,8 +69,17 @@ includes GUI-related libraries that are needed to run GNOME. (The
 libgnome package includes the library features that don't use the X
 Window System.)
 
+%description -l pl
+GNOME (GNU Network Object Model Environment) jest przyjaznym dla
+u¿ytkownika zestawem aplikacji i narzêdzi z graficznym interfejsem
+do u¿ywania w po³±czeniu z menad¿erem okien X Window System. Pakiet
+libgnomeui zawiera biblioteki zwi±zane z graficznym interfejsem
+u¿ytkownika potrzebne do uruchomienia GNOME (pakiet libgnome zawiera
+biblioteki nie u¿ywaj±ce X Window System).
+
 %package devel
-Summary:	Libraries and headers for libgnome
+Summary:	Headers for libgnomeui
+Summary(pl):	Pliki nag³ówkowe libgnomeui
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
 Group(es):	X11/Desarrollo/Bibliotecas
@@ -78,12 +88,12 @@ Group(pl):	X11/Programowanie/Biblioteki
 Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
 Group(ru):	X11/òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
 Group(uk):	X11/òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
-Requires:	%name = %{version}
+Requires:	%{name} = %{version}
 Requires:	zlib-devel
 Requires:	esound-devel
 Requires:	ORBit2-devel >= %{orbit2_version}
 Requires:	glib2-devel >= %{glib2_version}
-Requires:	gtk2-devel >= %{gtk2_version}
+Requires:	gtk+2-devel >= %{gtk2_version}
 Requires:	GConf2-devel >= %{gconf2_version} 
 Requires:	gnome-vfs2-devel >= %{gnome_vfs2_version}
 Requires:	libgnomecanvas-devel >= %{libgnomecanvas_version}
@@ -94,7 +104,6 @@ Requires:	libxml2-devel >= %{libxml2_version}
 Requires:	libgnome-devel >= %{libgnome_version}
 Requires:	libart_lgpl-devel >= %{libart_lgpl_version}
 Requires:	libglade2-devel >= %{libglade2_version}
-
 Conflicts:	gnome-libs-devel < 1.4.1.2
 Conflicts:	gdk-pixbuf-devel <= 0.11
 
@@ -110,6 +119,31 @@ compile GNOME applications. You do not need to install
 libgnomeui-devel if you just want to use the GNOME desktop
 environment.
 
+%description devel -l pl
+Ten pakiet zawiera pliki nag³ówkowe potrzebne do kompilacji programów
+u¿ywaj±cych libgnomeui.
+
+%package static
+Summary:	Static libgnomeui libraries
+Summary(pl):	Statyczne biblioteki libgnomeui
+Group:		X11/Development/Libraries
+Group(de):	X11/Entwicklung/Libraries
+Group(es):	X11/Desarrollo/Bibliotecas
+Group(fr):	X11/Development/Librairies
+Group(pl):	X11/Programowanie/Biblioteki
+Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
+Group(ru):	X11/òÁÚÒÁÂÏÔËÁ/âÉÂÌÉÏÔÅËÉ
+Group(uk):	X11/òÏÚÒÏÂËÁ/â¦ÂÌ¦ÏÔÅËÉ
+Requires:	%{name}-devel = %{version}
+Conflicts:	gnome-libs-static < 1.4.1.2
+Conflicts:	gdk-pixbuf-static <= 0.11
+
+%description static
+Static version of libgnomeui libraries.
+
+%description static -l pl
+Statyczna wersja bibliotek libgnomeui.
+
 %prep
 %setup -q
 
@@ -124,6 +158,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install
 	DESTDIR=$RPM_BUILD_ROOT
 
+gzip -9nf AUTHORS ChangeLog NEWS README
+
 %find_lang %{name}
 
 %clean
@@ -134,9 +170,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-
-%doc AUTHORS COPYING ChangeLog NEWS README
-
+%doc {AUTHORS,ChangeLog,NEWS,README}.gz
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_bindir}/*
 %{_pixmapsdir}/*
@@ -146,8 +180,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so
 %attr(755,root,root) %{_libdir}/lib*.la
-
-%{_libdir}/lib*.a
 %{_libdir}/pkgconfig/*
 %{_includedir}/*
 %{_datadir}/gtk-doc
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/lib*.a
