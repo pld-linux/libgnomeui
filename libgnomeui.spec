@@ -1,12 +1,13 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.5.1
+Version:	2.5.2
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	5ee361f3eeb4baeb2ffe9d1ab594d1f6
+# Source0-md5:	149ecfabf43865c73d320d0b24c11a01
+Patch:		%{name}-header-fix.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.4.0
 BuildRequires:	ORBit2-devel >= 2.9.2
@@ -90,6 +91,7 @@ Statyczna wersja bibliotek libgnomeui.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 #rm -f missing
