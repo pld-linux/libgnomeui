@@ -2,26 +2,21 @@ Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	1.117.0
-Release:	0.1
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/libgnomeui/%{name}-%{version}.tar.bz2
+Patch0:		%{name}-ac_fixes.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 1.1.9
-BuildRequires:	ORBit2-devel
-BuildRequires:	audiofile-devel
 BuildRequires:	bonobo-activation-devel
 BuildRequires:	esound-devel
-BuildRequires:	glib2-devel
 BuildRequires:	gnome-vfs2-devel
-BuildRequires:	gtk+2-devel
 BuildRequires:	libbonobo-devel
 BuildRequires:	libbonoboui-devel
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnome-devel
 BuildRequires:	libgnomecanvas-devel >= 1.117.0
-BuildRequires:	libxml2-devel
-BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -48,6 +43,15 @@ Summary:	Headers for libgnomeui
 Summary(pl):	Pliki nag³ówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
+Requires:	GConf2-devel >= 1.1.9
+Requires:	bonobo-activation-devel
+Requires:	esound-devel
+Requires:	gnome-vfs2-devel
+Requires:	libbonobo-devel
+Requires:	libbonoboui-devel
+Requires:	libglade2-devel
+Requires:	libgnome-devel
+Requires:	libgnomecanvas-devel >= 1.117.0
 
 %description devel
 GNOME (GNU Network Object Model Environment) is a user-friendly set of
@@ -79,9 +83,14 @@ Statyczna wersja bibliotek libgnomeui.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+rm -d missing
 libtoolize --copy --force
+aclocal
+%{__autoconf}
+%{__automake}
 %configure \
 	--enable-gtk-doc=no
 %{__make}
@@ -93,8 +102,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
-gzip -9nf AUTHORS ChangeLog NEWS README
-
 %find_lang %{name} --with-gnome --all-name
 
 %clean
@@ -105,7 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc {AUTHORS,ChangeLog,NEWS,README}.gz
+%doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/libglade/2.0/*.??
