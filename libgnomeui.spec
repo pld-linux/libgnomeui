@@ -1,33 +1,33 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.5.91
+Version:	2.5.92
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	ad5237e777c8b9c8235091279438d9fc
+# Source0-md5:	5c074a155e2bc7783e33c9f119148f7b
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.5.90
-BuildRequires:	ORBit2-devel >= 2.9.2
+BuildRequires:	ORBit2-devel >= 2.10.0
 BuildRequires:	audiofile-devel >= 0.2.3
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.31
 BuildRequires:	gnome-common
-BuildRequires:	gnome-keyring-devel >= 0.1.3
+BuildRequires:	gnome-keyring-devel >= 0.1.90
 BuildRequires:	gnome-vfs2-devel >= 2.5.90
 BuildRequires:	gtk-doc >= 1.1
-BuildRequires:	gtk+2-devel >= 2:2.3.5
+BuildRequires:	gtk+2-devel >= 2:2.3.6
 BuildRequires:	libbonobo-devel >= 2.6.0
 BuildRequires:	libbonoboui-devel >= 2.5.1
 BuildRequires:	libglade2-devel >= 2.3.1
-BuildRequires:	libgnome-devel >= 2.5.91
-BuildRequires:	libgnomecanvas-devel >= 2.5.91
+BuildRequires:	libgnome-devel >= 2.5.92
+BuildRequires:	libgnomecanvas-devel >= 2.5.92
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1.3.1
+BuildRequires:	pango-devel >= 1.3.6
 BuildRequires:	perl-base
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
@@ -58,14 +58,14 @@ Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.5.90
 Requires:	esound-devel >= 0.2.31
 Requires:	gnome-vfs2-devel >= 2.5.90
-Requires:	gnome-keyring-devel >= 0.1.3
+Requires:	gnome-keyring-devel >= 0.1.90
 Requires:	gtk-doc-common
-Requires:	gtk+2-devel >= 2:2.3.5
+Requires:	gtk+2-devel >= 2:2.3.6
 Requires:	libbonobo-devel >= 2.6.0
 Requires:	libbonoboui-devel >= 2.5.1
 Requires:	libglade2-devel >= 2.3.2
-Requires:	libgnome-devel >= 2.5.91
-Requires:	libgnomecanvas-devel >= 2.5.91
+Requires:	libgnome-devel >= 2.5.92
+Requires:	libgnomecanvas-devel >= 2.5.92
 Requires:	libjpeg-devel
 
 %description devel
@@ -137,7 +137,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/libglade/2.0/*.so
 %{_libdir}/libglade/2.0/*.la
-%{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.so
+%attr(755,root,root) %{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.so
 %{_pixmapsdir}/*
 # it seems that every package that uses %{_datadir}/gnome tree requires
 # libgnomeui - so added these directories to this package
