@@ -1,15 +1,15 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.5.90.1
+Version:	2.5.91
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	94466d61b75487672a8921539ab9bb88
+# Source0-md5:	ad5237e777c8b9c8235091279438d9fc
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.5.0
+BuildRequires:	GConf2-devel >= 2.5.90
 BuildRequires:	ORBit2-devel >= 2.9.2
 BuildRequires:	audiofile-devel >= 0.2.3
 BuildRequires:	autoconf
@@ -17,21 +17,21 @@ BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.31
 BuildRequires:	gnome-common
 BuildRequires:	gnome-keyring-devel >= 0.1.3
-BuildRequires:	gnome-vfs2-devel >= 2.5.6
+BuildRequires:	gnome-vfs2-devel >= 2.5.90
 BuildRequires:	gtk-doc >= 1.1
 BuildRequires:	gtk+2-devel >= 2:2.3.5
-BuildRequires:	libbonobo-devel >= 2.5.4
+BuildRequires:	libbonobo-devel >= 2.6.0
 BuildRequires:	libbonoboui-devel >= 2.5.1
 BuildRequires:	libglade2-devel >= 2.3.1
-BuildRequires:	libgnome-devel >= 2.5.90
-BuildRequires:	libgnomecanvas-devel >= 2.5.4
+BuildRequires:	libgnome-devel >= 2.5.91
+BuildRequires:	libgnomecanvas-devel >= 2.5.91
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.3.1
 BuildRequires:	perl-base
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
-Requires:	libbonobo >= 2.5.4
+Requires:	libbonobo >= 2.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -55,17 +55,17 @@ Summary:	Headers for libgnomeui
 Summary(pl):	Pliki nag³ówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.5.0
+Requires:	GConf2-devel >= 2.5.90
 Requires:	esound-devel >= 0.2.31
-Requires:	gnome-vfs2-devel >= 2.5.6
+Requires:	gnome-vfs2-devel >= 2.5.90
 Requires:	gnome-keyring-devel >= 0.1.3
 Requires:	gtk-doc-common
-Requires:	gtk+2-devel >= 2.3.5
-Requires:	libbonobo-devel >= 2.5.4
+Requires:	gtk+2-devel >= 2:2.3.5
+Requires:	libbonobo-devel >= 2.6.0
 Requires:	libbonoboui-devel >= 2.5.1
 Requires:	libglade2-devel >= 2.3.2
-Requires:	libgnome-devel >= 2.5.4
-Requires:	libgnomecanvas-devel >= 2.5.4
+Requires:	libgnome-devel >= 2.5.91
+Requires:	libgnomecanvas-devel >= 2.5.91
 Requires:	libjpeg-devel
 
 %description devel
