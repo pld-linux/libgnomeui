@@ -1,31 +1,30 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.7.91
-Release:	2
+Version:	2.7.92
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	8b630885b4df29dde3edff6b4763c2c2
-Patch0:		%{name}-locale-names.patch
+# Source0-md5:	074d50056308b83c667137a796056395
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.7.91
+BuildRequires:	GConf2-devel >= 2.7.92
 BuildRequires:	audiofile-devel >= 1:0.2.3
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 1:0.2.31
 BuildRequires:	gnome-common
-BuildRequires:	gnome-keyring-devel >= 0.3.1
-BuildRequires:	gnome-vfs2-devel >= 2.7.91
+BuildRequires:	gnome-keyring-devel >= 0.3.3
+BuildRequires:	gnome-vfs2-devel >= 2.7.92
 BuildRequires:	gtk-doc >= 1.1
 BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	libbonoboui-devel >= 2.6.0
 BuildRequires:	libglade2-devel >= 1:2.4.0
-BuildRequires:	libgnome-devel >= 2.7.91
-BuildRequires:	libgnomecanvas-devel >= 2.7.91
+BuildRequires:	libgnome-devel >= 2.7.92
+BuildRequires:	libgnomecanvas-devel >= 2.7.92
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.5.1
+BuildRequires:	pango-devel >= 1:1.5.2
 BuildRequires:	perl-base
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
@@ -53,16 +52,16 @@ Summary:	Headers for libgnomeui
 Summary(pl):	Pliki nag³ówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.7.91
+Requires:	GConf2-devel >= 2.7.92
 Requires:	esound-devel >= 1:0.2.31
-Requires:	gnome-vfs2-devel >= 2.7.91
-Requires:	gnome-keyring-devel >= 0.3.1
+Requires:	gnome-vfs2-devel >= 2.7.92
+Requires:	gnome-keyring-devel >= 0.3.3
 Requires:	gtk-doc-common
-Requires:	gtk+2-devel >= 2:2.4.0
+Requires:	gtk+2-devel >= 2:2.4.4
 Requires:	libbonoboui-devel >= 2.6.0
 Requires:	libglade2-devel >= 1:2.4.0
-Requires:	libgnome-devel >= 2.7.91
-Requires:	libgnomecanvas-devel >= 2.7.91
+Requires:	libgnome-devel >= 2.7.92
+Requires:	libgnomecanvas-devel >= 2.7.92
 Requires:	libjpeg-devel
 
 %description devel
@@ -90,9 +89,6 @@ Statyczna wersja bibliotek libgnomeui.
 
 %prep
 %setup -q
-%patch0 -p1
-
-rm po/no.po
 
 %build
 %{__libtoolize}
@@ -116,6 +112,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}/gnome/help
 # no static modules and *.la for libglade or vfs modules
 rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a}
 rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.{la,a}
+
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --with-gnome --all-name
 
