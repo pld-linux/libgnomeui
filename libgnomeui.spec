@@ -1,29 +1,29 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.1.90
+Version:	2.2.0
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.1/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.2/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 1.2.1-9
-BuildRequires:	ORBit2-devel >= 2.5.1
+BuildRequires:	GConf2-devel >= 2.2.0
+BuildRequires:	ORBit2-devel >= 2.6.0
 BuildRequires:	audiofile-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	bonobo-activation-devel >= 2.1.1
+BuildRequires:	bonobo-activation-devel >= 2.2.0
 BuildRequires:	esound-devel >= 0.2.29
-BuildRequires:	gnome-vfs2-devel >= 2.1.6
-BuildRequires:	libbonobo-devel >= 2.1.1
-BuildRequires:	libbonoboui-devel >= 2.1.2
+BuildRequires:	gnome-vfs2-devel >= 2.2.0
+BuildRequires:	libbonobo-devel >= 2.2.0
+BuildRequires:	libbonoboui-devel >= 2.2.0
 BuildRequires:	libglade2-devel >= 2.0.1-4
-BuildRequires:	libgnome-devel >= 2.1.90
-BuildRequires:	libgnomecanvas-devel >= 2.1.90
+BuildRequires:	libgnome-devel >= 2.2.0
+BuildRequires:	libgnomecanvas-devel >= 2.2.0
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.2.0
 BuildRequires:	rpm-build >= 4.1-10
-Requires:	bonobo-activation >= 2.1.1
+Requires:	bonobo-activation >= 2.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
