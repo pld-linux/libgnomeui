@@ -15,6 +15,7 @@ BuildRequires:	automake
 BuildRequires:	bonobo-activation-devel >= 2.2.0
 BuildRequires:	esound-devel >= 0.2.29
 BuildRequires:	gnome-vfs2-devel >= 2.2.0
+BuildRequires:	gtk-doc
 BuildRequires:	libbonobo-devel >= 2.2.0
 BuildRequires:	libbonoboui-devel >= 2.2.0
 BuildRequires:	libglade2-devel >= 2.0.1-4
