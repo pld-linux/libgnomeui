@@ -8,8 +8,10 @@ Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/libgnomeui/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-ac_fixes.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 1.1.9
-BuildRequires:	bonobo-activation-devel
+BuildRequires:	GConf2-devel >= 1.1.10
+BuildRequires:	ORBit2-devel
+BuildRequires:	audiofile-devel
+BuildRequires:	bonobo-activation-devel >= 0.9.9
 BuildRequires:	esound-devel
 BuildRequires:	gnome-vfs2-devel
 BuildRequires:	libbonobo-devel
