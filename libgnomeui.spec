@@ -1,36 +1,36 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.8.1
+Version:	2.10.0
 Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	d46a2b34bdfbc1b36464176fa8bef03c
+Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	e17c0d97e5f240513ac2d36268d696ed
 Patch0:		%{name}-threads.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.7.92
+BuildRequires:	GConf2-devel >= 2.10.0
 BuildRequires:	audiofile-devel >= 1:0.2.3
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 1:0.2.31
 BuildRequires:	gnome-common >= 2.8.0
-BuildRequires:	gnome-keyring-devel >= 0.4.0
-BuildRequires:	gnome-vfs2-devel >= 2.8.0
+BuildRequires:	gnome-keyring-devel >= 0.4.2
+BuildRequires:	gnome-vfs2-devel >= 2.10.0
 BuildRequires:	gtk-doc >= 1.1
-BuildRequires:	gtk+2-devel >= 2:2.4.4
-BuildRequires:	libbonoboui-devel >= 2.6.1
-BuildRequires:	libglade2-devel >= 1:2.4.0
-BuildRequires:	libgnome-devel >= 2.8.1
-BuildRequires:	libgnomecanvas-devel >= 2.8.0
+BuildRequires:	gtk+2-devel >= 2:2.6.3
+BuildRequires:	libbonoboui-devel >= 2.8.1
+BuildRequires:	libglade2-devel >= 1:2.5.0
+BuildRequires:	libgnome-devel >= 2.10.0
+BuildRequires:	libgnomecanvas-devel >= 2.10.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.4.1
+BuildRequires:	pango-devel >= 1:1.8.0
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
-Requires:	gtk+2 >= 2:2.4.4
+Requires:	gtk+2 >= 2:2.6.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -54,16 +54,16 @@ Summary:	Headers for libgnomeui
 Summary(pl):	Pliki nag³ówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.7.92
+Requires:	GConf2-devel >= 2.10.0
 Requires:	esound-devel >= 1:0.2.31
-Requires:	gnome-vfs2-devel >= 2.8.0
-Requires:	gnome-keyring-devel >= 0.4.0
+Requires:	gnome-vfs2-devel >= 2.10.0
+Requires:	gnome-keyring-devel >= 0.4.2
 Requires:	gtk-doc-common
-Requires:	gtk+2-devel >= 2:2.4.4
-Requires:	libbonoboui-devel >= 2.6.1
-Requires:	libglade2-devel >= 1:2.4.0
-Requires:	libgnome-devel >= 2.8.1
-Requires:	libgnomecanvas-devel >= 2.8.0
+Requires:	gtk+2-devel >= 2:2.6.3
+Requires:	libbonoboui-devel >= 2.8.1
+Requires:	libglade2-devel >= 1:2.5.0
+Requires:	libgnome-devel >= 2.10.0
+Requires:	libgnomecanvas-devel >= 2.10.0
 Requires:	libjpeg-devel
 
 %description devel
