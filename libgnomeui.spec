@@ -2,11 +2,12 @@ Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.8.0
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
 # Source0-md5:	ef0df128e3c0b2047ce440bbbe481390
+Patch0:		%{name}-threads.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.7.92
 BuildRequires:	audiofile-devel >= 1:0.2.3
@@ -89,6 +90,7 @@ Statyczna wersja bibliotek libgnomeui.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 %{__libtoolize}
