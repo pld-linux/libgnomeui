@@ -18,7 +18,7 @@ BuildRequires:	gnome-common
 BuildRequires:	gnome-keyring-devel >= 0.3.1
 BuildRequires:	gnome-vfs2-devel >= 2.7.3
 BuildRequires:	gtk-doc >= 1.1
-BuildRequires:	gtk+2-devel >= 2:2.5.0
+BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	libbonoboui-devel >= 2.6.0
 BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	libgnome-devel >= 2.7.2
@@ -29,7 +29,7 @@ BuildRequires:	pango-devel >= 1.5.1
 BuildRequires:	perl-base
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
-Requires:	gtk+2 >= 2:2.5.0
+Requires:	gtk+2 >= 2:2.4.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -58,7 +58,7 @@ Requires:	esound-devel >= 1:0.2.31
 Requires:	gnome-vfs2-devel >= 2.7.3
 Requires:	gnome-keyring-devel >= 0.3.1
 Requires:	gtk-doc-common
-Requires:	gtk+2-devel >= 2:2.5.0
+Requires:	gtk+2-devel >= 2:2.4.0
 Requires:	libbonoboui-devel >= 2.6.0
 Requires:	libglade2-devel >= 1:2.4.0
 Requires:	libgnome-devel >= 2.7.2
