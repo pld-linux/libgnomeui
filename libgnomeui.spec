@@ -2,12 +2,13 @@ Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.5.90
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
 # Source0-md5:	cb6bdd3d170b0e323c3bd8fe2deb30a9
 Patch0:		%{name}-locale-names.patch
+Patch1:		%{name}-gtkfilechooser.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.5.0
 BuildRequires:	ORBit2-devel >= 2.9.2
@@ -19,7 +20,7 @@ BuildRequires:	gnome-common
 BuildRequires:	gnome-keyring-devel >= 0.1.3
 BuildRequires:	gnome-vfs2-devel >= 2.5.6
 BuildRequires:	gtk-doc >= 1.1
-BuildRequires:	gtk+2-devel >= 2.3.1
+BuildRequires:	gtk+2-devel >= 2.3.5
 BuildRequires:	libbonobo-devel >= 2.5.4
 BuildRequires:	libbonoboui-devel >= 2.5.1
 BuildRequires:	libglade2-devel >= 2.3.1
@@ -60,7 +61,7 @@ Requires:	esound-devel >= 0.2.31
 Requires:	gnome-vfs2-devel >= 2.5.6
 Requires:	gnome-keyring-devel >= 0.1.3
 Requires:	gtk-doc-common
-Requires:	gtk+2-devel >= 2.3.1
+Requires:	gtk+2-devel >= 2.3.5
 Requires:	libbonobo-devel >= 2.5.4
 Requires:	libbonoboui-devel >= 2.5.1
 Requires:	libglade2-devel >= 2.3.2
@@ -94,6 +95,7 @@ Statyczna wersja bibliotek libgnomeui.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 mv po/{no,nb}.po
 
