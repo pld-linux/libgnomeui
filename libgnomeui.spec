@@ -1,38 +1,34 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.6.1.1
-Release:	2
+Version:	2.8.0
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	16e6717b5d7da982db00fea6167188ef
-Patch0:		%{name}-locale-names.patch
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	ef0df128e3c0b2047ce440bbbe481390
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.6.1
-BuildRequires:	ORBit2-devel >= 2.10.0
+BuildRequires:	GConf2-devel >= 2.7.92
 BuildRequires:	audiofile-devel >= 1:0.2.3
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 1:0.2.31
 BuildRequires:	gnome-common
-BuildRequires:	gnome-keyring-devel >= 0.2.1
-BuildRequires:	gnome-vfs2-devel >= 2.6.1
+BuildRequires:	gnome-keyring-devel >= 0.4.0
+BuildRequires:	gnome-vfs2-devel >= 2.8.0
 BuildRequires:	gtk-doc >= 1.1
-BuildRequires:	gtk+2-devel >= 2:2.4.1
-BuildRequires:	libbonobo-devel >= 2.6.0
-BuildRequires:	libbonoboui-devel >= 2.6.0
-BuildRequires:	libglade2-devel >= 1:2.3.6
-BuildRequires:	libgnome-devel >= 2.6.1
-BuildRequires:	libgnomecanvas-devel >= 2.6.1
+BuildRequires:	gtk+2-devel >= 2:2.4.4
+BuildRequires:	libbonoboui-devel >= 2.6.1
+BuildRequires:	libglade2-devel >= 1:2.4.0
+BuildRequires:	libgnome-devel >= 2.8.0
+BuildRequires:	libgnomecanvas-devel >= 2.8.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.4.0
+BuildRequires:	pango-devel >= 1:1.4.1
 BuildRequires:	perl-base
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
-Requires:	gtk+2 >= 2:2.4.1
-Requires:	libbonobo >= 2.6.0
+Requires:	gtk+2 >= 2:2.4.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -56,17 +52,16 @@ Summary:	Headers for libgnomeui
 Summary(pl):	Pliki nag³ówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.6.1
+Requires:	GConf2-devel >= 2.7.92
 Requires:	esound-devel >= 1:0.2.31
-Requires:	gnome-vfs2-devel >= 2.6.1
-Requires:	gnome-keyring-devel >= 0.2.1
+Requires:	gnome-vfs2-devel >= 2.8.0
+Requires:	gnome-keyring-devel >= 0.4.0
 Requires:	gtk-doc-common
-Requires:	gtk+2-devel >= 2:2.4.1
-Requires:	libbonobo-devel >= 2.6.0
-Requires:	libbonoboui-devel >= 2.6.0
-Requires:	libglade2-devel >= 1:2.3.6
-Requires:	libgnome-devel >= 2.6.1
-Requires:	libgnomecanvas-devel >= 2.6.1
+Requires:	gtk+2-devel >= 2:2.4.4
+Requires:	libbonoboui-devel >= 2.6.1
+Requires:	libglade2-devel >= 1:2.4.0
+Requires:	libgnome-devel >= 2.8.0
+Requires:	libgnomecanvas-devel >= 2.8.0
 Requires:	libjpeg-devel
 
 %description devel
@@ -94,9 +89,6 @@ Statyczna wersja bibliotek libgnomeui.
 
 %prep
 %setup -q
-%patch0 -p1
-
-mv po/{no,nb}.po
 
 %build
 %{__libtoolize}
@@ -120,6 +112,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}/gnome/help
 # no static modules and *.la for libglade or vfs modules
 rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a}
 rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.{la,a}
+
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --with-gnome --all-name
 
