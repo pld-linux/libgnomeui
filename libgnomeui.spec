@@ -14,6 +14,7 @@ BuildRequires:	audiofile-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.31
+BuildRequires:	gnome-common
 BuildRequires:	gnome-vfs2-devel >= 2.4.0
 BuildRequires:	gtk-doc >= 1.1
 BuildRequires:	libbonobo-devel >= 2.4.0
