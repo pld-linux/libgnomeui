@@ -6,6 +6,7 @@ Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.3/%{name}-%{version}.tar.bz2
+# Source0-md5: 596e20d88541d7bcc3e2116b825e3848
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.3.0
 BuildRequires:	ORBit2-devel >= 2.7.0
