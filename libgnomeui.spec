@@ -12,11 +12,10 @@ BuildRequires:	ORBit2-devel >= 2.7.0
 BuildRequires:	audiofile-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	bonobo-activation-devel >= 2.2.0
 BuildRequires:	esound-devel >= 0.2.29
 BuildRequires:	gnome-vfs2-devel >= 2.2.0
 BuildRequires:	gtk-doc
-BuildRequires:	libbonobo-devel >= 2.2.0
+BuildRequires:	libbonobo-devel >= 2.3.1-4
 BuildRequires:	libbonoboui-devel >= 2.2.0
 BuildRequires:	libglade2-devel >= 2.0.1-4
 BuildRequires:	libgnome-devel >= 2.3.0
@@ -24,7 +23,7 @@ BuildRequires:	libgnomecanvas-devel >= 2.3.0
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.2.0
 BuildRequires:	rpm-build >= 4.1-10
-Requires:	bonobo-activation >= 2.2.0
+Requires:	libbonobo >= 2.3.1-4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -49,7 +48,6 @@ Summary(pl):	Pliki nag³ówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
 Requires:	GConf2-devel
-Requires:	bonobo-activation-devel
 Requires:	esound-devel
 Requires:	gnome-vfs2-devel
 Requires:	gtk-doc-common
