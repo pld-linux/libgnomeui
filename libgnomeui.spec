@@ -2,7 +2,7 @@ Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.5.92
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
@@ -19,7 +19,7 @@ BuildRequires:	gnome-common
 BuildRequires:	gnome-keyring-devel >= 0.1.90
 BuildRequires:	gnome-vfs2-devel >= 2.5.90
 BuildRequires:	gtk-doc >= 1.1
-BuildRequires:	gtk+2-devel >= 2:2.3.6
+BuildRequires:	gtk+2-devel >= 2:2.4.0
 BuildRequires:	libbonobo-devel >= 2.6.0
 BuildRequires:	libbonoboui-devel >= 2.5.1
 BuildRequires:	libglade2-devel >= 2.3.1
@@ -60,7 +60,7 @@ Requires:	esound-devel >= 0.2.31
 Requires:	gnome-vfs2-devel >= 2.5.90
 Requires:	gnome-keyring-devel >= 0.1.90
 Requires:	gtk-doc-common
-Requires:	gtk+2-devel >= 2:2.3.6
+Requires:	gtk+2-devel >= 2:2.4.0
 Requires:	libbonobo-devel >= 2.6.0
 Requires:	libbonoboui-devel >= 2.5.1
 Requires:	libglade2-devel >= 2.3.2
