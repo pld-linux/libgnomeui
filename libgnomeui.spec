@@ -1,7 +1,7 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	1.115.0
+Version:	1.116.1
 Release:	0.1
 License:	LGPL
 Group:		X11/Libraries
@@ -81,6 +81,7 @@ Statyczna wersja bibliotek libgnomeui.
 %setup -q
 
 %build
+libtoolize --copy --force
 %configure \
 	--enable-gtk-doc=no
 %{__make}
@@ -107,6 +108,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc {AUTHORS,ChangeLog,NEWS,README}.gz
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libglade/2.0/*.??
 %{_pixmapsdir}/*
 
 %files devel
