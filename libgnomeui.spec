@@ -1,7 +1,7 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.1.2
+Version:	2.1.3
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
