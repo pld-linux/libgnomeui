@@ -10,7 +10,6 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.t
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.7.1
-BuildRequires:	ORBit2-devel >= 2.10.0
 BuildRequires:	audiofile-devel >= 1:0.2.3
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -20,9 +19,8 @@ BuildRequires:	gnome-keyring-devel >= 0.2.1
 BuildRequires:	gnome-vfs2-devel >= 2.7.1
 BuildRequires:	gtk-doc >= 1.1
 BuildRequires:	gtk+2-devel >= 2:2.4.1
-BuildRequires:	libbonobo-devel >= 2.6.0
 BuildRequires:	libbonoboui-devel >= 2.6.0
-BuildRequires:	libglade2-devel >= 1:2.3.6
+BuildRequires:	libglade2-devel >= 1:2.4.0
 BuildRequires:	libgnome-devel >= 2.7.1
 BuildRequires:	libgnomecanvas-devel >= 2.7.1
 BuildRequires:	libjpeg-devel
@@ -32,7 +30,6 @@ BuildRequires:	perl-base
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
 Requires:	gtk+2 >= 2:2.4.1
-Requires:	libbonobo >= 2.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -62,9 +59,8 @@ Requires:	gnome-vfs2-devel >= 2.7.1
 Requires:	gnome-keyring-devel >= 0.2.1
 Requires:	gtk-doc-common
 Requires:	gtk+2-devel >= 2:2.4.1
-Requires:	libbonobo-devel >= 2.6.0
 Requires:	libbonoboui-devel >= 2.6.0
-Requires:	libglade2-devel >= 1:2.3.6
+Requires:	libglade2-devel >= 1:2.4.0
 Requires:	libgnome-devel >= 2.7.1
 Requires:	libgnomecanvas-devel >= 2.7.1
 Requires:	libjpeg-devel
