@@ -1,12 +1,12 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.8.0
-Release:	2
+Version:	2.8.1
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	ef0df128e3c0b2047ce440bbbe481390
+Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	d46a2b34bdfbc1b36464176fa8bef03c
 Patch0:		%{name}-threads.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.7.92
@@ -21,12 +21,13 @@ BuildRequires:	gtk-doc >= 1.1
 BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	libbonoboui-devel >= 2.6.1
 BuildRequires:	libglade2-devel >= 1:2.4.0
-BuildRequires:	libgnome-devel >= 2.8.0
+BuildRequires:	libgnome-devel >= 2.8.1
 BuildRequires:	libgnomecanvas-devel >= 2.8.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.4.1
 BuildRequires:	perl-base
+BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
 Requires:	gtk+2 >= 2:2.4.4
@@ -61,7 +62,7 @@ Requires:	gtk-doc-common
 Requires:	gtk+2-devel >= 2:2.4.4
 Requires:	libbonoboui-devel >= 2.6.1
 Requires:	libglade2-devel >= 1:2.4.0
-Requires:	libgnome-devel >= 2.8.0
+Requires:	libgnome-devel >= 2.8.1
 Requires:	libgnomecanvas-devel >= 2.8.0
 Requires:	libjpeg-devel
 
@@ -100,7 +101,6 @@ Statyczna wersja bibliotek libgnomeui.
 %configure \
 	--enable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
-
 %{__make}
 
 %install
