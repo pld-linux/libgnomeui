@@ -1,0 +1,40 @@
+diff -Nur libgnomeui-1.114.0/libgnomeui/gnome-app-helper.c libgnomeui-1.114.0.new/libgnomeui/gnome-app-helper.c
+--- libgnomeui-1.114.0/libgnomeui/gnome-app-helper.c	Sun Feb 24 00:05:01 2002
++++ libgnomeui-1.114.0.new/libgnomeui/gnome-app-helper.c	Sun Apr 14 12:51:10 2002
+@@ -38,8 +38,8 @@
+ #include <string.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+-#include <gconf/gconf.h>
+-#include <gconf/gconf-client.h>
++#include <gconf.h>
++#include <gconf-client.h>
+ #include <gdk/gdkkeysyms.h>
+ #include <gtk/gtk.h>
+ #include <libxml/parser.h>
+diff -Nur libgnomeui-1.114.0/libgnomeui/gnome-entry.c libgnomeui-1.114.0.new/libgnomeui/gnome-entry.c
+--- libgnomeui-1.114.0/libgnomeui/gnome-entry.c	Sun Mar  3 12:21:15 2002
++++ libgnomeui-1.114.0.new/libgnomeui/gnome-entry.c	Sun Apr 14 12:51:48 2002
+@@ -41,7 +41,7 @@
+ #include <gtk/gtklistitem.h>
+ #include <gtk/gtksignal.h>
+ 
+-#include <gconf/gconf-client.h>
++#include <gconf-client.h>
+ #include <libgnome/gnome-program.h>
+ 
+ #include "gnome-gconf-ui.h"
+diff -Nur libgnomeui-1.114.0/libgnomeui/gnome-gconf-ui.c libgnomeui-1.114.0.new/libgnomeui/gnome-gconf-ui.c
+--- libgnomeui-1.114.0/libgnomeui/gnome-gconf-ui.c	Fri Mar 29 23:42:56 2002
++++ libgnomeui-1.114.0.new/libgnomeui/gnome-gconf-ui.c	Sun Apr 14 12:51:40 2002
+@@ -28,8 +28,8 @@
+ #include <stdlib.h>
+ 
+ #define GCONF_ENABLE_INTERNALS
+-#include <gconf/gconf.h>
+-#include <gconf/gconf-client.h>
++#include <gconf.h>
++#include <gconf-client.h>
+ 
+ #include "gnome-i18nP.h"
+ 
