@@ -40,7 +40,7 @@ Window System.)
 %description -l pl
 GNOME (GNU Network Object Model Environment) jest przyjaznym dla
 u¿ytkownika zestawem aplikacji i narzêdzi z graficznym interfejsem do
-u¿ywania w po³±czeniu z menad¿erem okien X Window System. Pakiet
+u¿ywania w po³±czeniu z zarz±dc± okien X Window System. Pakiet
 libgnomeui zawiera biblioteki zwi±zane z graficznym interfejsem
 u¿ytkownika potrzebne do uruchomienia GNOME (pakiet libgnome zawiera
 biblioteki nie u¿ywaj±ce X Window System).
@@ -67,11 +67,6 @@ GUI applications and desktop tools to be used in conjunction with a
 window manager for the X Window System. The libgnomeui-devel package
 includes the libraries and include files that you will need to use
 libgnomeui.
-
-You should install the libgnomeui-devel package if you would like to
-compile GNOME applications. You do not need to install
-libgnomeui-devel if you just want to use the GNOME desktop
-environment.
 
 %description devel -l pl
 Ten pakiet zawiera pliki nag³ówkowe potrzebne do kompilacji programów
