@@ -10,6 +10,8 @@ URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 1.2.1
 BuildRequires:	ORBit2-devel >= 2.4.3
 BuildRequires:	audiofile-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	bonobo-activation-devel >= 1.0.3
 BuildRequires:	esound-devel >= 0.2.29
 BuildRequires:	gnome-vfs2-devel >= 2.0.4
@@ -18,6 +20,7 @@ BuildRequires:	libbonoboui-devel >= 2.0.2
 BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnome-devel >= 2.1.0
 BuildRequires:	libgnomecanvas-devel >= 2.1.0
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -90,7 +93,7 @@ Statyczna wersja bibliotek libgnomeui.
 %build
 rm -d missing
 %{__libtoolize}
-aclocal -I %{_aclocaldir}/gnome2-macros
+%{__aclocal} -I %{_aclocaldir}/gnome2-macros
 %{__autoconf}
 %{__automake}
 %configure \
