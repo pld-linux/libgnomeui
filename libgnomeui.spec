@@ -27,7 +27,7 @@ BuildRequires:	libgnome-devel >= 2.6.1
 BuildRequires:	libgnomecanvas-devel >= 2.6.1
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1.4.0
+BuildRequires:	pango-devel >= 1:1.4.0
 BuildRequires:	perl-base
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
