@@ -1,14 +1,13 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.5.90
-Release:	2
+Version:	2.5.90.1
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	cb6bdd3d170b0e323c3bd8fe2deb30a9
+# Source0-md5:	94466d61b75487672a8921539ab9bb88
 Patch0:		%{name}-locale-names.patch
-Patch1:		%{name}-gtkfilechooser.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.5.0
 BuildRequires:	ORBit2-devel >= 2.9.2
@@ -95,7 +94,6 @@ Statyczna wersja bibliotek libgnomeui.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 mv po/{no,nb}.po
 
@@ -121,11 +119,13 @@ install -d $RPM_BUILD_ROOT%{_datadir}/gnome/help
 
 # no static modules
 rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.a
+rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.{la,a}
 
 %find_lang %{name} --with-gnome --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
@@ -137,6 +137,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/libglade/2.0/*.so
 %{_libdir}/libglade/2.0/*.la
+%{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.so
 %{_pixmapsdir}/*
 # it seems that every package that uses %{_datadir}/gnome tree requires
 # libgnomeui - so added these directories to this package
