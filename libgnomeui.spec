@@ -87,7 +87,7 @@ Statyczna wersja bibliotek libgnomeui.
 %setup -q
 
 %build
-rm -d missing
+rm -f missing
 %{__libtoolize}
 %{__aclocal} -I %{_aclocaldir}/gnome2-macros
 %{__autoconf}
