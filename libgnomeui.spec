@@ -14,7 +14,7 @@ BuildRequires:	ORBit2-devel >= 2.10.0
 BuildRequires:	audiofile-devel >= 1:0.2.3
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	esound-devel >= 0.2.31
+BuildRequires:	esound-devel >= 1:0.2.31
 BuildRequires:	gnome-common
 BuildRequires:	gnome-keyring-devel >= 0.1.90
 BuildRequires:	gnome-vfs2-devel >= 2.5.90
@@ -56,7 +56,7 @@ Summary(pl):	Pliki nag³ówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.5.90
-Requires:	esound-devel >= 0.2.31
+Requires:	esound-devel >= 1:0.2.31
 Requires:	gnome-vfs2-devel >= 2.5.90
 Requires:	gnome-keyring-devel >= 0.1.90
 Requires:	gtk-doc-common
