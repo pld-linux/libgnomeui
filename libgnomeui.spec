@@ -21,6 +21,7 @@ BuildRequires:	libglade2-devel >= 2.0.1
 BuildRequires:	libgnome-devel >= 2.1.1
 BuildRequires:	libgnomecanvas-devel >= 2.1.0
 BuildRequires:	libtool
+BuildRequires:	pango-devel >= 1.1.2
 Requires:	bonobo-activation >= 2.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
