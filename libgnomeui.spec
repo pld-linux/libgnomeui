@@ -19,6 +19,7 @@ BuildRequires:	esound-devel >= 0.2.31
 BuildRequires:	gnome-common
 BuildRequires:	gnome-vfs2-devel >= 2.4.0
 BuildRequires:	gtk-doc >= 1.1
+BuildRequires:	gtk+2-devel >= 2.3.0-1.20031110.1
 BuildRequires:	libbonobo-devel >= 2.4.0
 BuildRequires:	libbonoboui-devel >= 2.4.0
 BuildRequires:	libglade2-devel >= 2.0.1-4
@@ -56,6 +57,7 @@ Requires:	GConf2-devel >= 2.4.0
 Requires:	esound-devel >= 0.2.31
 Requires:	gnome-vfs2-devel >= 2.4.0
 Requires:	gtk-doc-common
+Requires:	gtk+2-devel >= 2.3.0-1.20031110.1
 Requires:	libbonobo-devel >= 2.4.0
 Requires:	libbonoboui-devel >= 2.4.0
 Requires:	libglade2-devel >= 2.0.1
