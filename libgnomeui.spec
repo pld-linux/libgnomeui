@@ -19,7 +19,7 @@ BuildRequires:	gnome-common
 BuildRequires:	gnome-keyring-devel >= 0.1.3
 BuildRequires:	gnome-vfs2-devel >= 2.5.6
 BuildRequires:	gtk-doc >= 1.1
-BuildRequires:	gtk+2-devel >= 2.3.5
+BuildRequires:	gtk+2-devel >= 2:2.3.5
 BuildRequires:	libbonobo-devel >= 2.5.4
 BuildRequires:	libbonoboui-devel >= 2.5.1
 BuildRequires:	libglade2-devel >= 2.3.1
