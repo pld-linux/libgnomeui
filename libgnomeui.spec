@@ -1,7 +1,7 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.2.0
+Version:	2.2.0.1
 Release:	1
 License:	LGPL
 Group:		Libraries
@@ -18,8 +18,8 @@ BuildRequires:	gnome-vfs2-devel >= 2.2.0
 BuildRequires:	libbonobo-devel >= 2.2.0
 BuildRequires:	libbonoboui-devel >= 2.2.0
 BuildRequires:	libglade2-devel >= 2.0.1-4
-BuildRequires:	libgnome-devel >= 2.2.0
-BuildRequires:	libgnomecanvas-devel >= 2.2.0
+BuildRequires:	libgnome-devel >= 2.2.0.1
+BuildRequires:	libgnomecanvas-devel >= 2.2.0.1
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.2.0
 BuildRequires:	rpm-build >= 4.1-10
