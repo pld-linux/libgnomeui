@@ -1,12 +1,11 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	1.117.1
+Version:	1.117.2
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/libgnomeui/%{name}-%{version}.tar.bz2
-Patch0:		%{name}-ac_fixes.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 1.1.10
 BuildRequires:	ORBit2-devel
@@ -85,12 +84,11 @@ Statyczna wersja bibliotek libgnomeui.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 rm -d missing
 libtoolize --copy --force
-aclocal
+aclocal -I %{_aclocaldir}/gnome2-macros
 %{__autoconf}
 %{__automake}
 %configure \
