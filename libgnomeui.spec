@@ -13,7 +13,7 @@ BuildRequires:	audiofile-devel >= 1:0.2.3
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 1:0.2.31
-BuildRequires:	gnome-common
+BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnome-keyring-devel >= 0.4.0
 BuildRequires:	gnome-vfs2-devel >= 2.8.0
 BuildRequires:	gtk-doc >= 1.1
@@ -92,7 +92,7 @@ Statyczna wersja bibliotek libgnomeui.
 
 %build
 %{__libtoolize}
-%{__aclocal} -I %{_aclocaldir}/gnome2-macros
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
