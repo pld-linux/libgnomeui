@@ -21,6 +21,7 @@ BuildRequires:	libbonoboui-devel >= 2.2.0
 BuildRequires:	libglade2-devel >= 2.0.1-4
 BuildRequires:	libgnome-devel >= 2.3.3.1
 BuildRequires:	libgnomecanvas-devel >= 2.3.0
+BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.2.0
 BuildRequires:	rpm-build >= 4.1-10
@@ -57,6 +58,7 @@ Requires:	libbonoboui-devel
 Requires:	libglade2-devel
 Requires:	libgnome-devel
 Requires:	libgnomecanvas-devel
+Requires:	libjpeg-devel
 
 %description devel
 GNOME (GNU Network Object Model Environment) is a user-friendly set of
