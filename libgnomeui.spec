@@ -19,10 +19,10 @@ BuildRequires:	gnome-common
 BuildRequires:	gnome-keyring-devel >= 0.2.1
 BuildRequires:	gnome-vfs2-devel >= 2.6.1
 BuildRequires:	gtk-doc >= 1.1
-BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	gtk+2-devel >= 2:2.4.1
 BuildRequires:	libbonobo-devel >= 2.6.0
 BuildRequires:	libbonoboui-devel >= 2.6.0
-BuildRequires:	libglade2-devel >= 2.3.6
+BuildRequires:	libglade2-devel >= 1:2.3.6
 BuildRequires:	libgnome-devel >= 2.6.1
 BuildRequires:	libgnomecanvas-devel >= 2.6.1
 BuildRequires:	libjpeg-devel
@@ -31,6 +31,7 @@ BuildRequires:	pango-devel >= 1.4.0
 BuildRequires:	perl-base
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
+Requires:	gtk+2 >= 2:2.4.1
 Requires:	libbonobo >= 2.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -60,10 +61,10 @@ Requires:	esound-devel >= 1:0.2.31
 Requires:	gnome-vfs2-devel >= 2.6.1
 Requires:	gnome-keyring-devel >= 0.2.1
 Requires:	gtk-doc-common
-Requires:	gtk+2-devel >= 2:2.4.0
+Requires:	gtk+2-devel >= 2:2.4.1
 Requires:	libbonobo-devel >= 2.6.0
 Requires:	libbonoboui-devel >= 2.6.0
-Requires:	libglade2-devel >= 2.3.6
+Requires:	libglade2-devel >= 1:2.3.6
 Requires:	libgnome-devel >= 2.6.1
 Requires:	libgnomecanvas-devel >= 2.6.1
 Requires:	libjpeg-devel
@@ -124,7 +125,6 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.{la,a}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
