@@ -1,20 +1,20 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.4.0
+Version:	2.4.0.1
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	67fb759eed85a55de49c26b1c34118e9
+# Source0-md5:	196f4a3f1f4a531ff57acaa879e98dd2
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.3.3
-BuildRequires:	ORBit2-devel >= 2.8.0
+BuildRequires:	GConf2-devel >= 2.4.0
+BuildRequires:	ORBit2-devel >= 2.8.1
 BuildRequires:	audiofile-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.31
-BuildRequires:	gnome-vfs2-devel >= 2.3.90
+BuildRequires:	gnome-vfs2-devel >= 2.4.0
 BuildRequires:	gtk-doc >= 1.1
 BuildRequires:	libbonobo-devel >= 2.4.0
 BuildRequires:	libbonoboui-devel >= 2.4.0
@@ -49,9 +49,9 @@ Summary:	Headers for libgnomeui
 Summary(pl):	Pliki nag³ówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}
-Requires:	GConf2-devel >= 2.3.3
+Requires:	GConf2-devel >= 2.4.0
 Requires:	esound-devel >= 0.2.31
-Requires:	gnome-vfs2-devel >= 2.3.90
+Requires:	gnome-vfs2-devel >= 2.4.0
 Requires:	gtk-doc-common
 Requires:	libbonobo-devel >= 2.4.0
 Requires:	libbonoboui-devel >= 2.4.0
