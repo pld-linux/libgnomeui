@@ -2,21 +2,21 @@ Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.7.91
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
 # Source0-md5:	8b630885b4df29dde3edff6b4763c2c2
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.7.3
+BuildRequires:	GConf2-devel >= 2.7.91
 BuildRequires:	audiofile-devel >= 1:0.2.3
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 1:0.2.31
 BuildRequires:	gnome-common
 BuildRequires:	gnome-keyring-devel >= 0.3.1
-BuildRequires:	gnome-vfs2-devel >= 2.7.3
+BuildRequires:	gnome-vfs2-devel >= 2.7.91
 BuildRequires:	gtk-doc >= 1.1
 BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	libbonoboui-devel >= 2.6.0
@@ -53,9 +53,9 @@ Summary:	Headers for libgnomeui
 Summary(pl):	Pliki nag³ówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.7.3
+Requires:	GConf2-devel >= 2.7.91
 Requires:	esound-devel >= 1:0.2.31
-Requires:	gnome-vfs2-devel >= 2.7.3
+Requires:	gnome-vfs2-devel >= 2.7.91
 Requires:	gnome-keyring-devel >= 0.3.1
 Requires:	gtk-doc-common
 Requires:	gtk+2-devel >= 2:2.4.0
