@@ -1,31 +1,32 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.5.0
+Version:	2.5.1
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	173dad79ddfdac6d2ab977bad4dba6e8
+# Source0-md5:	5ee361f3eeb4baeb2ffe9d1ab594d1f6
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.4.0
-BuildRequires:	ORBit2-devel >= 2.8.1
+BuildRequires:	ORBit2-devel >= 2.9.2
 BuildRequires:	audiofile-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.31
 BuildRequires:	gnome-common
-BuildRequires:	gnome-vfs2-devel >= 2.4.0
+BuildRequires:	gnome-keyring-devel
+BuildRequires:	gnome-vfs2-devel >= 2.5.3
 BuildRequires:	gtk-doc >= 1.1
-BuildRequires:	gtk+2-devel >= 2.3.0-1.20031110.1
-BuildRequires:	libbonobo-devel >= 2.4.0
-BuildRequires:	libbonoboui-devel >= 2.4.0
-BuildRequires:	libglade2-devel >= 2.0.1-4
-BuildRequires:	libgnome-devel >= 2.5.0
-BuildRequires:	libgnomecanvas-devel >= 2.5.0
+BuildRequires:	gtk+2-devel >= 2.3.1
+BuildRequires:	libbonobo-devel >= 2.5.1
+BuildRequires:	libbonoboui-devel >= 2.5.1
+BuildRequires:	libglade2-devel >= 2.3.1
+BuildRequires:	libgnome-devel >= 2.5.1
+BuildRequires:	libgnomecanvas-devel >= 2.5.1
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1.2.5
+BuildRequires:	pango-devel >= 1.3.1
 BuildRequires:	rpm-build >= 4.1-10
 Requires:	libbonobo >= 2.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
