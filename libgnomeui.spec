@@ -2,13 +2,13 @@ Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.1.3
-Release:	1
+Release:	2
 License:	LGPL
-Group:		X11/Libraries
+Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.1/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 1.2.1
-BuildRequires:	ORBit2-devel >= 2.4.3
+BuildRequires:	GConf2-devel >= 1.2.1-9
+BuildRequires:	ORBit2-devel >= 2.5.0
 BuildRequires:	audiofile-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -16,18 +16,15 @@ BuildRequires:	bonobo-activation-devel >= 2.1.0
 BuildRequires:	esound-devel >= 0.2.29
 BuildRequires:	gnome-vfs2-devel >= 2.0.4
 BuildRequires:	libbonobo-devel >= 2.1.0
-BuildRequires:	libbonoboui-devel >= 2.1.0
-BuildRequires:	libglade2-devel >= 2.0.1
-BuildRequires:	libgnome-devel >= 2.1.1
+BuildRequires:	libbonoboui-devel >= 2.1.1-4
+BuildRequires:	libglade2-devel >= 2.0.1-4
+BuildRequires:	libgnome-devel >= 2.1.2-2
 BuildRequires:	libgnomecanvas-devel >= 2.1.0
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1.1.2
+BuildRequires:	pango-devel >= 1.1.4
+BuildRequires:	rpm-build >= 4.1-8.2
 Requires:	bonobo-activation >= 2.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
-%define		_gtkdocdir	%{_defaultdocdir}/gtk-doc/html
 
 %description
 GNOME (GNU Network Object Model Environment) is a user-friendly set of
