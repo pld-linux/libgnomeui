@@ -5,19 +5,19 @@ Version:	2.0.4
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/libgnomeui/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/2.0.1/sources/libgnomeui/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 1.2.1
-BuildRequires:	ORBit2-devel >= 2.4.1
+BuildRequires:	ORBit2-devel >= 2.4.3
 BuildRequires:	audiofile-devel
 BuildRequires:	bonobo-activation-devel >= 1.0.3
-BuildRequires:	esound-devel
-BuildRequires:	gnome-vfs2-devel >= 2.0.2
+BuildRequires:	esound-devel >= 0.2.29
+BuildRequires:	gnome-vfs2-devel >= 2.0.3
 BuildRequires:	libbonobo-devel >= 2.0.0
-BuildRequires:	libbonoboui-devel >= 2.0.1
+BuildRequires:	libbonoboui-devel >= 2.0.2
 BuildRequires:	libglade2-devel >= 2.0.0
-BuildRequires:	libgnome-devel >= 2.0.1
-BuildRequires:	libgnomecanvas-devel >= 2.0.2
+BuildRequires:	libgnome-devel >= 2.0.3
+BuildRequires:	libgnomecanvas-devel >= 2.0.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
