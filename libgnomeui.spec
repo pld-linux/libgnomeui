@@ -1,14 +1,12 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.5.2
-Release:	2
+Version:	2.5.3
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	149ecfabf43865c73d320d0b24c11a01
-Patch0:		%{name}-header-fix.patch
-Patch1:		%{name}-gnome_keyring.patch
+# Source0-md5:	453919abf1034c4b418ba6832baef0f8
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.4.0
 BuildRequires:	ORBit2-devel >= 2.9.2
@@ -17,7 +15,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.31
 BuildRequires:	gnome-common
-BuildRequires:	gnome-keyring-devel
+BuildRequires:	gnome-keyring-devel >= 0.1.2
 BuildRequires:	gnome-vfs2-devel >= 2.5.3
 BuildRequires:	gtk-doc >= 1.1
 BuildRequires:	gtk+2-devel >= 2.3.1
@@ -92,8 +90,6 @@ Statyczna wersja bibliotek libgnomeui.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
 
 %build
 #rm -f missing
