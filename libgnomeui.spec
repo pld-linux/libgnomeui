@@ -1,7 +1,7 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	1.116.1
+Version:	1.117.0
 Release:	0.1
 License:	LGPL
 Group:		X11/Libraries
@@ -19,7 +19,7 @@ BuildRequires:	libbonobo-devel
 BuildRequires:	libbonoboui-devel
 BuildRequires:	libglade2-devel
 BuildRequires:	libgnome-devel
-BuildRequires:	libgnomecanvas-devel
+BuildRequires:	libgnomecanvas-devel >= 1.117.0
 BuildRequires:	libxml2-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
