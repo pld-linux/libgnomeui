@@ -115,7 +115,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/gnome_segv2
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %{_libdir}/libglade/2.0/*.??
+%{_libdir}/libglade/2.0/*.la
+%attr(755,root,root) %{_libdir}/libglade/2.0/*.so
 %{_pixmapsdir}/*
 
 %files devel
