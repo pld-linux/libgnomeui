@@ -1,16 +1,17 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.5.4
+Version:	2.5.90
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	98d7fc07646bff0e002e74d728876a81
+# Source0-md5:	cb6bdd3d170b0e323c3bd8fe2deb30a9
+Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.5.0
 BuildRequires:	ORBit2-devel >= 2.9.2
-BuildRequires:	audiofile-devel
+BuildRequires:	audiofile-devel >= 0.2.3
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.31
@@ -22,11 +23,13 @@ BuildRequires:	gtk+2-devel >= 2.3.1
 BuildRequires:	libbonobo-devel >= 2.5.4
 BuildRequires:	libbonoboui-devel >= 2.5.1
 BuildRequires:	libglade2-devel >= 2.3.1
-BuildRequires:	libgnome-devel >= 2.5.4
+BuildRequires:	libgnome-devel >= 2.5.90
 BuildRequires:	libgnomecanvas-devel >= 2.5.4
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.3.1
+BuildRequires:	perl-base
+BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
 Requires:	libbonobo >= 2.5.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -51,7 +54,7 @@ biblioteki nie u¿ywaj±ce X Window System).
 Summary:	Headers for libgnomeui
 Summary(pl):	Pliki nag³ówkowe libgnomeui
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.5.0
 Requires:	esound-devel >= 0.2.31
 Requires:	gnome-vfs2-devel >= 2.5.6
@@ -80,7 +83,7 @@ u¿ywaj±cych libgnomeui.
 Summary:	Static libgnomeui libraries
 Summary(pl):	Statyczne biblioteki libgnomeui
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of libgnomeui libraries.
@@ -90,13 +93,16 @@ Statyczna wersja bibliotek libgnomeui.
 
 %prep
 %setup -q
+%patch0 -p1
+
+mv po/{no,nb}.po
 
 %build
-#rm -f missing
-#%{__libtoolize}
-#%{__aclocal} -I %{_aclocaldir}/gnome2-macros
-#%{__autoconf}
-#%{__automake}
+rm -f missing
+%{__libtoolize}
+%{__aclocal} -I %{_aclocaldir}/gnome2-macros
+%{__autoconf}
+%{__automake}
 %configure \
 	--enable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
