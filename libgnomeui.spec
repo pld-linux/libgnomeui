@@ -1,32 +1,37 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.4.0.1
-Release:	2
+Version:	2.6.0
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	196f4a3f1f4a531ff57acaa879e98dd2
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	ef295e03112ed1647de991ad4552ce28
+Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.4.0
-BuildRequires:	ORBit2-devel >= 2.8.1
-BuildRequires:	audiofile-devel
+BuildRequires:	GConf2-devel >= 2.5.90
+BuildRequires:	ORBit2-devel >= 2.10.0
+BuildRequires:	audiofile-devel >= 1:0.2.3
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	esound-devel >= 0.2.31
+BuildRequires:	esound-devel >= 1:0.2.31
 BuildRequires:	gnome-common
-BuildRequires:	gnome-vfs2-devel >= 2.4.0
+BuildRequires:	gnome-keyring-devel >= 0.1.90
+BuildRequires:	gnome-vfs2-devel >= 2.5.90
 BuildRequires:	gtk-doc >= 1.1
-BuildRequires:	libbonobo-devel >= 2.4.0
-BuildRequires:	libbonoboui-devel >= 2.4.0
-BuildRequires:	libglade2-devel >= 2.0.1-4
-BuildRequires:	libgnome-devel >= 2.4.0
-BuildRequires:	libgnomecanvas-devel >= 2.4.0
+BuildRequires:	gtk+2-devel >= 2:2.4.0
+BuildRequires:	libbonobo-devel >= 2.6.0
+BuildRequires:	libbonoboui-devel >= 2.5.1
+BuildRequires:	libglade2-devel >= 2.3.6
+BuildRequires:	libgnome-devel >= 2.6.0
+BuildRequires:	libgnomecanvas-devel >= 2.6.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1.2.5
+BuildRequires:	pango-devel >= 1.3.6
+BuildRequires:	perl-base
+BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpm-build >= 4.1-10
-Requires:	libbonobo >= 2.4.0
+Requires:	libbonobo >= 2.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -49,16 +54,18 @@ biblioteki nie u¿ywaj±ce X Window System).
 Summary:	Headers for libgnomeui
 Summary(pl):	Pliki nag³ówkowe libgnomeui
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
-Requires:	GConf2-devel >= 2.4.0
-Requires:	esound-devel >= 0.2.31
-Requires:	gnome-vfs2-devel >= 2.4.0
+Requires:	%{name} = %{version}-%{release}
+Requires:	GConf2-devel >= 2.5.90
+Requires:	esound-devel >= 1:0.2.31
+Requires:	gnome-vfs2-devel >= 2.5.90
+Requires:	gnome-keyring-devel >= 0.1.90
 Requires:	gtk-doc-common
-Requires:	libbonobo-devel >= 2.4.0
-Requires:	libbonoboui-devel >= 2.4.0
-Requires:	libglade2-devel >= 2.0.1
-Requires:	libgnome-devel >= 2.4.0
-Requires:	libgnomecanvas-devel >= 2.4.0
+Requires:	gtk+2-devel >= 2:2.4.0
+Requires:	libbonobo-devel >= 2.6.0
+Requires:	libbonoboui-devel >= 2.5.1
+Requires:	libglade2-devel >= 2.3.6
+Requires:	libgnome-devel >= 2.6.0
+Requires:	libgnomecanvas-devel >= 2.6.0
 Requires:	libjpeg-devel
 
 %description devel
@@ -76,7 +83,7 @@ u¿ywaj±cych libgnomeui.
 Summary:	Static libgnomeui libraries
 Summary(pl):	Statyczne biblioteki libgnomeui
 Group:		X11/Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of libgnomeui libraries.
@@ -86,6 +93,9 @@ Statyczna wersja bibliotek libgnomeui.
 
 %prep
 %setup -q
+%patch0 -p1
+
+mv po/{no,nb}.po
 
 %build
 %{__libtoolize}
@@ -106,13 +116,15 @@ install -d $RPM_BUILD_ROOT%{_datadir}/gnome/help
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
-# no static modules and *.la for glade modules
-rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a}
+# no static modules
+rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.a
+rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.{la,a}
 
 %find_lang %{name} --with-gnome --all-name
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
@@ -123,6 +135,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/gnome_segv2
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/libglade/2.0/*.so
+%{_libdir}/libglade/2.0/*.la
+%attr(755,root,root) %{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.so
 %{_pixmapsdir}/*
 # it seems that every package that uses %{_datadir}/gnome tree requires
 # libgnomeui - so added these directories to this package
