@@ -1,14 +1,12 @@
-%define		snap 20031112
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.5.0
-Release:	0.%{snap}.1
+Release:	1
 License:	LGPL
 Group:		Libraries
-#Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
-Source0:	%{name}-%{version}.%{snap}.tar.bz2
-# Source0-md5:	f9f34a92afd895594dbca4268c2203af
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.5/%{name}-%{version}.tar.bz2
+# Source0-md5:	173dad79ddfdac6d2ab977bad4dba6e8
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.4.0
 BuildRequires:	ORBit2-devel >= 2.8.1
@@ -23,8 +21,8 @@ BuildRequires:	gtk+2-devel >= 2.3.0-1.20031110.1
 BuildRequires:	libbonobo-devel >= 2.4.0
 BuildRequires:	libbonoboui-devel >= 2.4.0
 BuildRequires:	libglade2-devel >= 2.0.1-4
-BuildRequires:	libgnome-devel >= 2.4.0
-BuildRequires:	libgnomecanvas-devel >= 2.4.0
+BuildRequires:	libgnome-devel >= 2.5.0
+BuildRequires:	libgnomecanvas-devel >= 2.5.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.2.5
