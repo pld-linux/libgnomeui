@@ -2,7 +2,7 @@ Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.4.0.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
@@ -88,7 +88,6 @@ Statyczna wersja bibliotek libgnomeui.
 %setup -q
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__aclocal} -I %{_aclocaldir}/gnome2-macros
 %{__autoconf}
@@ -107,8 +106,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}/gnome/help
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
-# no static modules
-rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.a
+# no static modules and *.la for glade modules
+rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a}
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -124,7 +123,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/gnome_segv2
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/libglade/2.0/*.so
-%{_libdir}/libglade/2.0/*.la
 %{_pixmapsdir}/*
 # it seems that every package that uses %{_datadir}/gnome tree requires
 # libgnomeui - so added these directories to this package
