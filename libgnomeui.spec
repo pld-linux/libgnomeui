@@ -1,14 +1,12 @@
-%define		snap 20031112
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.5.0
-Release:	0.%{snap}.1
+Version:	2.4.0.1
+Release:	1
 License:	LGPL
 Group:		Libraries
-#Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
-Source0:	%{name}-%{version}.%{snap}.tar.bz2
-# Source0-md5:	f9f34a92afd895594dbca4268c2203af
+Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.4/%{name}-%{version}.tar.bz2
+# Source0-md5:	196f4a3f1f4a531ff57acaa879e98dd2
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.4.0
 BuildRequires:	ORBit2-devel >= 2.8.1
@@ -90,11 +88,11 @@ Statyczna wersja bibliotek libgnomeui.
 %setup -q
 
 %build
-#rm -f missing
-#%{__libtoolize}
-#%{__aclocal} -I %{_aclocaldir}/gnome2-macros
-#%{__autoconf}
-#%{__automake}
+rm -f missing
+%{__libtoolize}
+%{__aclocal} -I %{_aclocaldir}/gnome2-macros
+%{__autoconf}
+%{__automake}
 %configure \
 	--enable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
