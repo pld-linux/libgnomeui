@@ -116,8 +116,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}/gnome/help
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
-# no static modules
-rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.a
+# no static modules and *.la for libglade or vfs modules
+rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a}
 rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.{la,a}
 
 %find_lang %{name} --with-gnome --all-name
@@ -135,7 +135,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/gnome_segv2
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/libglade/2.0/*.so
-%{_libdir}/libglade/2.0/*.la
 %attr(755,root,root) %{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.so
 %{_pixmapsdir}/*
 # it seems that every package that uses %{_datadir}/gnome tree requires
