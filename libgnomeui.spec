@@ -11,7 +11,7 @@ Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.5.90
 BuildRequires:	ORBit2-devel >= 2.10.0
-BuildRequires:	audiofile-devel >= 0.2.3
+BuildRequires:	audiofile-devel >= 1:0.2.3
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 0.2.31
