@@ -1,12 +1,12 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.7.2
+Version:	2.7.91
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/%{name}/2.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	37fe4da6aad2913f573d745490e5e774
+# Source0-md5:	8b630885b4df29dde3edff6b4763c2c2
 Patch0:		%{name}-locale-names.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.7.3
@@ -21,8 +21,8 @@ BuildRequires:	gtk-doc >= 1.1
 BuildRequires:	gtk+2-devel >= 2:2.4.4
 BuildRequires:	libbonoboui-devel >= 2.6.0
 BuildRequires:	libglade2-devel >= 1:2.4.0
-BuildRequires:	libgnome-devel >= 2.7.2
-BuildRequires:	libgnomecanvas-devel >= 2.7.1
+BuildRequires:	libgnome-devel >= 2.7.91
+BuildRequires:	libgnomecanvas-devel >= 2.7.91
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1.5.1
@@ -61,8 +61,8 @@ Requires:	gtk-doc-common
 Requires:	gtk+2-devel >= 2:2.4.0
 Requires:	libbonoboui-devel >= 2.6.0
 Requires:	libglade2-devel >= 1:2.4.0
-Requires:	libgnome-devel >= 2.7.2
-Requires:	libgnomecanvas-devel >= 2.7.1
+Requires:	libgnome-devel >= 2.7.91
+Requires:	libgnomecanvas-devel >= 2.7.91
 Requires:	libjpeg-devel
 
 %description devel
@@ -92,7 +92,7 @@ Statyczna wersja bibliotek libgnomeui.
 %setup -q
 %patch0 -p1
 
-mv po/{no,nb}.po
+rm po/no.po
 
 %build
 %{__libtoolize}
