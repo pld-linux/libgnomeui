@@ -1,25 +1,25 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	1.114.0
-Release:	1
+Version:	1.115.0
+Release:	0.1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.gnome.org/pub/gnome/pre-gnome2/sources/libgnomeui/%{name}-%{version}.tar.bz2
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 1.1.9
 BuildRequires:	ORBit2-devel
-BuildRequires:	audiofile-devel >= 0.2.2
+BuildRequires:	audiofile-devel
 BuildRequires:	bonobo-activation-devel
-BuildRequires:	esound-devel >= 0.2.23
+BuildRequires:	esound-devel
 BuildRequires:	glib2-devel
 BuildRequires:	gnome-vfs2-devel
 BuildRequires:	gtk+2-devel
 BuildRequires:	libbonobo-devel
-BuildRequires:	libbonoboui-devel >= 1.113.0
-BuildRequires:	libglade2-devel >= 1.99.9
-BuildRequires:	libgnome-devel >= 1.114.0
-BuildRequires:	libgnomecanvas-devel >= 1.114.0
+BuildRequires:	libbonoboui-devel
+BuildRequires:	libglade2-devel
+BuildRequires:	libgnome-devel
+BuildRequires:	libgnomecanvas-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
