@@ -24,7 +24,7 @@ URL:		http://www.gnome.org/
 Requires:	ORBit2 >= %{orbit2_version}
 Requires:	glib2 >= %{glib2_version}
 Requires:	gtk+2 >= %{gtk2_version}
-Requires:	GConf2 >= %{gconf2_version} 
+Requires:	GConf2 >= %{gconf2_version}
 Requires:	gnome-vfs2 >= %{gnome_vfs2_version}
 Requires:	libgnomecanvas >= %{libgnomecanvas_version}
 Requires:	bonobo-activation >= %{bonobo_activation_version}
@@ -39,7 +39,7 @@ BuildRequires:	esound-devel
 BuildRequires:	ORBit2-devel >= %{orbit2_version}
 BuildRequires:	glib2-devel >= %{glib2_version}
 BuildRequires:	gtk+2-devel >= %{gtk2_version}
-BuildRequires:	GConf2-devel >= %{gconf2_version} 
+BuildRequires:	GConf2-devel >= %{gconf2_version}
 BuildRequires:	gnome-vfs2-devel >= %{gnome_vfs2_version}
 BuildRequires:	libgnomecanvas-devel >= %{libgnomecanvas_version}
 BuildRequires:	bonobo-activation-devel >= %{bonobo_activation_version}
@@ -64,8 +64,8 @@ Window System.)
 
 %description -l pl
 GNOME (GNU Network Object Model Environment) jest przyjaznym dla
-u¿ytkownika zestawem aplikacji i narzêdzi z graficznym interfejsem
-do u¿ywania w po³±czeniu z menad¿erem okien X Window System. Pakiet
+u¿ytkownika zestawem aplikacji i narzêdzi z graficznym interfejsem do
+u¿ywania w po³±czeniu z menad¿erem okien X Window System. Pakiet
 libgnomeui zawiera biblioteki zwi±zane z graficznym interfejsem
 u¿ytkownika potrzebne do uruchomienia GNOME (pakiet libgnome zawiera
 biblioteki nie u¿ywaj±ce X Window System).
@@ -80,7 +80,7 @@ Requires:	esound-devel
 Requires:	ORBit2-devel >= %{orbit2_version}
 Requires:	glib2-devel >= %{glib2_version}
 Requires:	gtk+2-devel >= %{gtk2_version}
-Requires:	GConf2-devel >= %{gconf2_version} 
+Requires:	GConf2-devel >= %{gconf2_version}
 Requires:	gnome-vfs2-devel >= %{gnome_vfs2_version}
 Requires:	libgnomecanvas-devel >= %{libgnomecanvas_version}
 Requires:	bonobo-activation-devel >= %{bonobo_activation_version}
