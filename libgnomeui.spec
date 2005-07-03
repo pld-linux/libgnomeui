@@ -1,12 +1,12 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.10.0
-Release:	5
+Version:	2.11.1
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	e17c0d97e5f240513ac2d36268d696ed
+Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.11/%{name}-%{version}.tar.bz2
+# Source0-md5:	07cfa09bb9bf9b6a853aea0a938d341d
 Patch0:		%{name}-threads.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.10.0
@@ -21,7 +21,7 @@ BuildRequires:	gtk-doc >= 1.1
 BuildRequires:	gtk+2-devel >= 2:2.6.3
 BuildRequires:	libbonoboui-devel >= 2.8.1
 BuildRequires:	libglade2-devel >= 1:2.5.0
-BuildRequires:	libgnome-devel >= 2.10.0
+BuildRequires:	libgnome-devel >= 2.11.1
 BuildRequires:	libgnomecanvas-devel >= 2.10.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
