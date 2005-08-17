@@ -2,14 +2,14 @@ Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.11.2
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.11/%{name}-%{version}.tar.bz2
 # Source0-md5:	029928502654b82aca140a608422ffed
 Patch0:		%{name}-threads.patch
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.11.90
+BuildRequires:	GConf2-devel >= 2.11.90-2
 BuildRequires:	audiofile-devel >= 1:0.2.3
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
@@ -18,19 +18,19 @@ BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnome-keyring-devel >= 0.4.2
 BuildRequires:	gnome-vfs2-devel >= 2.11.90
 BuildRequires:	gtk-doc >= 1.1
-BuildRequires:	gtk+2-devel >= 2:2.6.3
+BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	libbonoboui-devel >= 2.8.1
 BuildRequires:	libglade2-devel >= 1:2.5.0
 BuildRequires:	libgnome-devel >= 2.11.2
 BuildRequires:	libgnomecanvas-devel >= 2.11.1
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.8.0
+BuildRequires:	pango-devel >= 1:1.10.0
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires:	gtk+2 >= 2:2.6.3
+Requires:	gtk+2 >= 2:2.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -59,7 +59,7 @@ Requires:	esound-devel >= 1:0.2.31
 Requires:	gnome-vfs2-devel >= 2.11.90
 Requires:	gnome-keyring-devel >= 0.4.2
 Requires:	gtk-doc-common
-Requires:	gtk+2-devel >= 2:2.6.3
+Requires:	gtk+2-devel >= 2:2.8.0
 Requires:	libbonoboui-devel >= 2.8.1
 Requires:	libglade2-devel >= 1:2.5.0
 Requires:	libgnome-devel >= 2.11.2
