@@ -22,7 +22,7 @@ BuildRequires:	gtk+2-devel >= 2:2.8.0
 BuildRequires:	libbonoboui-devel >= 2.8.1
 BuildRequires:	libglade2-devel >= 1:2.5.0
 BuildRequires:	libgnome-devel >= 2.11.2
-BuildRequires:	libgnomecanvas-devel >= 2.11.1
+BuildRequires:	libgnomecanvas-devel >= 2.11.1-2
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.10.0
