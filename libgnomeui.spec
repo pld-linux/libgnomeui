@@ -1,12 +1,12 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.11.2
-Release:	2
+Version:	2.11.3
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.11/%{name}-%{version}.tar.bz2
-# Source0-md5:	029928502654b82aca140a608422ffed
+# Source0-md5:	aa772258869f8a5010cbf5e9bdb075fe
 Patch0:		%{name}-threads.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.11.90-2
@@ -128,23 +128,23 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_libdir}/gnome_segv2
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %{_libdir}/libglade/2.0/*.so
-%attr(755,root,root) %{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.so
-%{_pixmapsdir}/*
 # it seems that every package that uses %{_datadir}/gnome tree requires
 # libgnomeui - so added these directories to this package
 %dir %{_datadir}/gnome
 %dir %{_datadir}/gnome/help
+%attr(755,root,root) %{_libdir}/gnome_segv2
+%attr(755,root,root) %{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.so
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libglade/2.0/*.so
+%{_pixmapsdir}/*
 
 %files devel
 %defattr(644,root,root,755)
+%{_gtkdocdir}/%{name}
+%{_includedir}/libgnomeui-2.0
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_pkgconfigdir}/*.pc
-%{_includedir}/libgnomeui-2.0
-%{_gtkdocdir}/%{name}
 
 %files static
 %defattr(644,root,root,755)
