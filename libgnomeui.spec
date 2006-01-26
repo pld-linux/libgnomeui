@@ -1,12 +1,12 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.13.2
+Version:	2.13.3
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.13/%{name}-%{version}.tar.bz2
-# Source0-md5:	beee8d2e32ddb4b5647e8c5c950a42fa
+# Source0-md5:	b23459770a68a9f829bd407f5ff961a0
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.12.0
 BuildRequires:	audiofile-devel >= 1:0.2.3
