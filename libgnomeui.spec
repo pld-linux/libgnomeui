@@ -1,13 +1,12 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.12.1
-Release:	1
+Version:	2.14.0
+Release:	2
 License:	LGPL
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	97ee22e36d6fb8c4a57796da4110145e
-Patch0:		%{name}-threads.patch
+Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.14/%{name}-%{version}.tar.bz2
+# Source0-md5:	9bf9a8696c3eba9477eeeed29297e801
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.12.0
 BuildRequires:	audiofile-devel >= 1:0.2.3
@@ -19,9 +18,9 @@ BuildRequires:	gnome-keyring-devel >= 0.4.2
 BuildRequires:	gnome-vfs2-devel >= 2.12.0
 BuildRequires:	gtk-doc >= 1.3
 BuildRequires:	gtk+2-devel >= 2:2.8.3
-BuildRequires:	libbonoboui-devel >= 2.10.1
+BuildRequires:	libbonoboui-devel >= 2.13.1
 BuildRequires:	libglade2-devel >= 1:2.5.0
-BuildRequires:	libgnome-devel >= 2.12.0
+BuildRequires:	libgnome-devel >= 2.14.0
 BuildRequires:	libgnomecanvas-devel >= 2.12.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
@@ -91,7 +90,6 @@ Statyczna wersja bibliotek libgnomeui.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 %{__libtoolize}
