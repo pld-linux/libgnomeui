@@ -4,7 +4,7 @@ Name:		libgnomeui
 Version:	2.14.0
 Release:	2
 License:	LGPL
-Group:		Libraries
+Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.14/%{name}-%{version}.tar.bz2
 # Source0-md5:	9bf9a8696c3eba9477eeeed29297e801
 URL:		http://www.gnome.org/
