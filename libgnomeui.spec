@@ -1,28 +1,27 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.12.1
+Version:	2.14.1
 Release:	1
 License:	LGPL
-Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	97ee22e36d6fb8c4a57796da4110145e
-Patch0:		%{name}-threads.patch
+Group:		X11/Libraries
+Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.14/%{name}-%{version}.tar.bz2
+# Source0-md5:	ff6b6c25de0e7e39c79998621cdec048
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.12.0
+BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	audiofile-devel >= 1:0.2.3
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 1:0.2.31
 BuildRequires:	gnome-common >= 2.8.0
 BuildRequires:	gnome-keyring-devel >= 0.4.2
-BuildRequires:	gnome-vfs2-devel >= 2.12.0
+BuildRequires:	gnome-vfs2-devel >= 2.14.0
 BuildRequires:	gtk-doc >= 1.3
 BuildRequires:	gtk+2-devel >= 2:2.8.3
-BuildRequires:	libbonoboui-devel >= 2.10.1
+BuildRequires:	libbonoboui-devel >= 2.13.1
 BuildRequires:	libglade2-devel >= 1:2.5.0
-BuildRequires:	libgnome-devel >= 2.12.0
-BuildRequires:	libgnomecanvas-devel >= 2.12.0
+BuildRequires:	libgnome-devel >= 2.14.0
+BuildRequires:	libgnomecanvas-devel >= 2.14.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
 BuildRequires:	pango-devel >= 1:1.10.0
@@ -91,7 +90,6 @@ Statyczna wersja bibliotek libgnomeui.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
 %{__libtoolize}
