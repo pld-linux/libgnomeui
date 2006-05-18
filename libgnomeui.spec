@@ -2,7 +2,7 @@ Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.14.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.14/%{name}-%{version}.tar.bz2
@@ -13,12 +13,12 @@ BuildRequires:	audiofile-devel >= 1:0.2.3
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
 BuildRequires:	esound-devel >= 1:0.2.31
-BuildRequires:	gnome-common >= 2.8.0
-BuildRequires:	gnome-keyring-devel >= 0.4.2
+BuildRequires:	gnome-common >= 2.12.0
+BuildRequires:	gnome-keyring-devel >= 0.4.9
 BuildRequires:	gnome-vfs2-devel >= 2.14.0
 BuildRequires:	gtk-doc >= 1.3
 BuildRequires:	gtk+2-devel >= 2:2.8.3
-BuildRequires:	libbonoboui-devel >= 2.13.1
+BuildRequires:	libbonoboui-devel >= 2.14.0
 BuildRequires:	libglade2-devel >= 1:2.5.0
 BuildRequires:	libgnome-devel >= 2.14.0
 BuildRequires:	libgnomecanvas-devel >= 2.14.0
@@ -30,6 +30,10 @@ BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	gtk+2 >= 2:2.8.3
+Requires:	gnome-keyring-libs >= 0.4.9
+Requires:	gnome-vfs2-libs >= 2.14.0
+Requires:	libbonoboui >= 2.14.0
+Requires:	pango >= 1:1.10.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -53,16 +57,14 @@ Summary:	Headers for libgnomeui
 Summary(pl):	Pliki nag³ówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.12.0
+Requires:	GConf2-devel >= 2.14.0
 Requires:	esound-devel >= 1:0.2.31
-Requires:	gnome-vfs2-devel >= 2.12.0
-Requires:	gnome-keyring-devel >= 0.4.2
+Requires:	gnome-vfs2-devel >= 2.14.0
+Requires:	gnome-keyring-devel >= 0.4.9
 Requires:	gtk-doc-common
 Requires:	gtk+2-devel >= 2:2.8.3
-Requires:	libbonoboui-devel >= 2.10.1
+Requires:	libbonoboui-devel >= 2.14.0
 Requires:	libglade2-devel >= 1:2.5.0
-Requires:	libgnome-devel >= 2.12.0
-Requires:	libgnomecanvas-devel >= 2.12.0
 Requires:	libjpeg-devel
 
 %description devel
