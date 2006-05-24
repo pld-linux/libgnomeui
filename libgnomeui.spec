@@ -1,12 +1,12 @@
 Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.14.1
-Release:	2
+Version:	2.15.1
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	ff6b6c25de0e7e39c79998621cdec048
+Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.15/%{name}-%{version}.tar.bz2
+# Source0-md5:	a63906a9504e6fc7e776730137007676
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.14.0
 BuildRequires:	audiofile-devel >= 1:0.2.3
@@ -15,25 +15,25 @@ BuildRequires:	automake
 BuildRequires:	esound-devel >= 1:0.2.31
 BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gnome-keyring-devel >= 0.4.9
-BuildRequires:	gnome-vfs2-devel >= 2.14.0
+BuildRequires:	gnome-vfs2-devel >= 2.15.1
 BuildRequires:	gtk-doc >= 1.3
-BuildRequires:	gtk+2-devel >= 2:2.8.3
+BuildRequires:	gtk+2-devel >= 2:2.9.1
 BuildRequires:	libbonoboui-devel >= 2.14.0
 BuildRequires:	libglade2-devel >= 1:2.5.0
 BuildRequires:	libgnome-devel >= 2.14.0
 BuildRequires:	libgnomecanvas-devel >= 2.14.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.10.0
+BuildRequires:	pango-devel >= 1:1.13.1
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires:	gtk+2 >= 2:2.8.3
+Requires:	gtk+2 >= 2:2.9.1
 Requires:	gnome-keyring-libs >= 0.4.9
-Requires:	gnome-vfs2-libs >= 2.14.0
+Requires:	gnome-vfs2-libs >= 2.15.1
 Requires:	libbonoboui >= 2.14.0
-Requires:	pango >= 1:1.10.0
+Requires:	pango >= 1:1.13.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -59,10 +59,10 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.14.0
 Requires:	esound-devel >= 1:0.2.31
-Requires:	gnome-vfs2-devel >= 2.14.0
+Requires:	gnome-vfs2-devel >= 2.15.1
 Requires:	gnome-keyring-devel >= 0.4.9
 Requires:	gtk-doc-common
-Requires:	gtk+2-devel >= 2:2.8.3
+Requires:	gtk+2-devel >= 2:2.9.1
 Requires:	libbonoboui-devel >= 2.14.0
 Requires:	libglade2-devel >= 1:2.5.0
 Requires:	libjpeg-devel
@@ -115,7 +115,8 @@ install -d $RPM_BUILD_ROOT%{_datadir}/gnome/help
 rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a}
 rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.{la,a}
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
+# zh_HK will be back shortly
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/{tk,zh_HK}
 
 %find_lang %{name} --with-gnome --all-name
 
