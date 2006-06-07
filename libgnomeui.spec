@@ -2,7 +2,7 @@ Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.15.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.15/%{name}-%{version}.tar.bz2
@@ -17,9 +17,9 @@ BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gnome-keyring-devel >= 0.4.9
 BuildRequires:	gnome-vfs2-devel >= 2.15.1
 BuildRequires:	gtk-doc >= 1.3
-BuildRequires:	gtk+2-devel >= 2:2.9.1
+BuildRequires:	gtk+2-devel >= 2:2.9.2
 BuildRequires:	libbonoboui-devel >= 2.14.0
-BuildRequires:	libglade2-devel >= 1:2.5.0
+BuildRequires:	libglade2-devel >= 1:2.5.1
 BuildRequires:	libgnome-devel >= 2.14.0
 BuildRequires:	libgnomecanvas-devel >= 2.14.0
 BuildRequires:	libjpeg-devel
@@ -29,7 +29,7 @@ BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires:	gtk+2 >= 2:2.9.1
+Requires:	gtk+2 >= 2:2.9.2
 Requires:	gnome-keyring-libs >= 0.4.9
 Requires:	gnome-vfs2-libs >= 2.15.1
 Requires:	libbonoboui >= 2.14.0
@@ -62,9 +62,9 @@ Requires:	esound-devel >= 1:0.2.31
 Requires:	gnome-vfs2-devel >= 2.15.1
 Requires:	gnome-keyring-devel >= 0.4.9
 Requires:	gtk-doc-common
-Requires:	gtk+2-devel >= 2:2.9.1
+Requires:	gtk+2-devel >= 2:2.9.2
 Requires:	libbonoboui-devel >= 2.14.0
-Requires:	libglade2-devel >= 1:2.5.0
+Requires:	libglade2-devel >= 1:2.5.1
 Requires:	libjpeg-devel
 
 %description devel
@@ -94,6 +94,7 @@ Statyczna wersja bibliotek libgnomeui.
 %setup -q
 
 %build
+%{__gtkdocize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -116,7 +117,7 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a}
 rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.{la,a}
 
 # zh_HK will be back shortly
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/{tk,zh_HK}
+rm -r $RPM_BUILD_ROOT%{_datadir}/locale/tk
 
 %find_lang %{name} --with-gnome --all-name
 
