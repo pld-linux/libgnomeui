@@ -116,7 +116,6 @@ install -d $RPM_BUILD_ROOT%{_datadir}/gnome/help
 rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a}
 rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.{la,a}
 
-# zh_HK will be back shortly
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/tk
 
 %find_lang %{name} --with-gnome --all-name
