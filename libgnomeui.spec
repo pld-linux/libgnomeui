@@ -2,7 +2,7 @@ Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.15.91
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.15/%{name}-%{version}.tar.bz2
@@ -15,24 +15,24 @@ BuildRequires:	automake
 BuildRequires:	esound-devel >= 1:0.2.31
 BuildRequires:	gnome-common >= 2.12.0
 BuildRequires:	gnome-keyring-devel >= 0.5.1
-BuildRequires:	gnome-vfs2-devel >= 2.15.90
-BuildRequires:	gtk-doc >= 1.6
+BuildRequires:	gnome-vfs2-devel >= 2.15.91
+BuildRequires:	gtk-doc >= 1.7
 BuildRequires:	gtk+2-devel >= 2:2.10.1
-BuildRequires:	libbonoboui-devel >= 2.14.0
+BuildRequires:	libbonoboui-devel >= 2.15.0
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnome-devel >= 2.15.1
+BuildRequires:	libgnome-devel >= 2.15.2
 BuildRequires:	libgnomecanvas-devel >= 2.14.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.13.4
+BuildRequires:	pango-devel >= 1:1.13.5
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires:	gtk+2 >= 2:2.10.1
 Requires:	gnome-keyring-libs >= 0.5.1
-Requires:	gnome-vfs2-libs >= 2.15.90
-Requires:	libbonoboui >= 2.14.0
+Requires:	gnome-vfs2-libs >= 2.15.91
+Requires:	libbonoboui >= 2.15.0
 Requires:	pango >= 1:1.13.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -59,11 +59,10 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.14.0
 Requires:	esound-devel >= 1:0.2.31
-Requires:	gnome-vfs2-devel >= 2.15.90
+Requires:	gnome-vfs2-devel >= 2.15.91
 Requires:	gnome-keyring-devel >= 0.5.1
-Requires:	gtk-doc-common
 Requires:	gtk+2-devel >= 2:2.10.1
-Requires:	libbonoboui-devel >= 2.14.0
+Requires:	libbonoboui-devel >= 2.15.0
 Requires:	libglade2-devel >= 1:2.6.0
 Requires:	libjpeg-devel
 
@@ -89,6 +88,18 @@ Static version of libgnomeui libraries.
 
 %description static -l pl
 Statyczna wersja bibliotek libgnomeui.
+
+%package apidocs
+Summary:	libgnomeui API documentation
+Summary(pl):	Dokumentacja API libgnomeui
+Group:		Documentation
+Requires:	gtk-doc-common
+
+%description apidocs
+libgnomeui API documentation.
+
+%description apidocs -l pl
+Dokumentacja API libgnomeui.
 
 %prep
 %setup -q
@@ -141,7 +152,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_gtkdocdir}/%{name}
 %{_includedir}/libgnomeui-2.0
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_libdir}/lib*.la
@@ -150,3 +160,7 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
+
+%files apidocs
+%defattr(644,root,root,755)
+%{_gtkdocdir}/%{name}
