@@ -140,10 +140,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-# it seems that every package that uses %{_datadir}/gnome tree requires
-# libgnomeui - so added these directories to this package
-%dir %{_datadir}/gnome
-%dir %{_datadir}/gnome/help
 %attr(755,root,root) %{_libdir}/gnome_segv2
 %attr(755,root,root) %{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.so
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
