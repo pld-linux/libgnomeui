@@ -2,7 +2,7 @@ Summary:	GNOME base GUI library
 Summary(pl):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.16.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.16/%{name}-%{version}.tar.bz2
@@ -59,12 +59,13 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.14.0
 Requires:	esound-devel >= 1:0.2.31
-Requires:	gnome-vfs2-devel >= 2.16.1
 Requires:	gnome-keyring-devel >= 0.6.0
+Requires:	gnome-vfs2-devel >= 2.16.1
 Requires:	gtk+2-devel >= 2:2.10.6
 Requires:	libbonoboui-devel >= 2.16.0
 Requires:	libglade2-devel >= 1:2.6.0
 Requires:	libjpeg-devel
+Requires:	popt-devel >= 1.5
 
 %description devel
 GNOME (GNU Network Object Model Environment) is a user-friendly set of
