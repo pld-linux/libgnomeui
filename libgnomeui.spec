@@ -1,5 +1,5 @@
 Summary:	GNOME base GUI library
-Summary(pl):	Podstawowa biblioteka GUI GNOME
+Summary(pl.UTF-8):   Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.16.1
 Release:	2
@@ -44,17 +44,17 @@ includes GUI-related libraries that are needed to run GNOME. (The
 libgnome package includes the library features that don't use the X
 Window System.)
 
-%description -l pl
+%description -l pl.UTF-8
 GNOME (GNU Network Object Model Environment) jest przyjaznym dla
-uøytkownika zestawem aplikacji i narzÍdzi z graficznym interfejsem do
-uøywania w po≥±czeniu z zarz±dc± okien X Window System. Pakiet
-libgnomeui zawiera biblioteki zwi±zane z graficznym interfejsem
-uøytkownika potrzebne do uruchomienia GNOME (pakiet libgnome zawiera
-biblioteki nie uøywaj±ce X Window System).
+u≈ºytkownika zestawem aplikacji i narzƒôdzi z graficznym interfejsem do
+u≈ºywania w po≈ÇƒÖczeniu z zarzƒÖdcƒÖ okien X Window System. Pakiet
+libgnomeui zawiera biblioteki zwiƒÖzane z graficznym interfejsem
+u≈ºytkownika potrzebne do uruchomienia GNOME (pakiet libgnome zawiera
+biblioteki nie u≈ºywajƒÖce X Window System).
 
 %package devel
 Summary:	Headers for libgnomeui
-Summary(pl):	Pliki nag≥Ûwkowe libgnomeui
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.14.0
@@ -74,32 +74,32 @@ window manager for the X Window System. The libgnomeui-devel package
 includes the libraries and include files that you will need to use
 libgnomeui.
 
-%description devel -l pl
-Ten pakiet zawiera pliki nag≥Ûwkowe potrzebne do kompilacji programÛw
-uøywaj±cych libgnomeui.
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nag≈Ç√≥wkowe potrzebne do kompilacji program√≥w
+u≈ºywajƒÖcych libgnomeui.
 
 %package static
 Summary:	Static libgnomeui libraries
-Summary(pl):	Statyczne biblioteki libgnomeui
+Summary(pl.UTF-8):   Statyczne biblioteki libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static version of libgnomeui libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna wersja bibliotek libgnomeui.
 
 %package apidocs
 Summary:	libgnomeui API documentation
-Summary(pl):	Dokumentacja API libgnomeui
+Summary(pl.UTF-8):   Dokumentacja API libgnomeui
 Group:		Documentation
 Requires:	gtk-doc-common
 
 %description apidocs
 libgnomeui API documentation.
 
-%description apidocs -l pl
+%description apidocs -l pl.UTF-8
 Dokumentacja API libgnomeui.
 
 %prep
