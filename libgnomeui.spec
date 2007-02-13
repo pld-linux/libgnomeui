@@ -1,5 +1,5 @@
 Summary:	GNOME base GUI library
-Summary(pl.UTF-8):   Podstawowa biblioteka GUI GNOME
+Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.16.1
 Release:	2
@@ -54,7 +54,7 @@ biblioteki nie używające X Window System).
 
 %package devel
 Summary:	Headers for libgnomeui
-Summary(pl.UTF-8):   Pliki nagłówkowe libgnomeui
+Summary(pl.UTF-8):	Pliki nagłówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.14.0
@@ -80,7 +80,7 @@ używających libgnomeui.
 
 %package static
 Summary:	Static libgnomeui libraries
-Summary(pl.UTF-8):   Statyczne biblioteki libgnomeui
+Summary(pl.UTF-8):	Statyczne biblioteki libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -92,7 +92,7 @@ Statyczna wersja bibliotek libgnomeui.
 
 %package apidocs
 Summary:	libgnomeui API documentation
-Summary(pl.UTF-8):   Dokumentacja API libgnomeui
+Summary(pl.UTF-8):	Dokumentacja API libgnomeui
 Group:		Documentation
 Requires:	gtk-doc-common
 
