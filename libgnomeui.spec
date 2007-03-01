@@ -1,39 +1,39 @@
 Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.16.1
-Release:	2
+Version:	2.17.92
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.16/%{name}-%{version}.tar.bz2
-# Source0-md5:	d9b975952bf5feee8818d3fb18cca0b3
+Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.17/%{name}-%{version}.tar.bz2
+# Source0-md5:	643c22772854f36be475d67b9bcad2b4
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.14.0
-BuildRequires:	audiofile-devel >= 1:0.2.3
+BuildRequires:	GConf2-devel >= 2.16.1
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
-BuildRequires:	esound-devel >= 1:0.2.31
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gnome-keyring-devel >= 0.6.0
-BuildRequires:	gnome-vfs2-devel >= 2.16.1
-BuildRequires:	gtk-doc >= 1.7
-BuildRequires:	gtk+2-devel >= 2:2.10.6
-BuildRequires:	libbonoboui-devel >= 2.16.0
+BuildRequires:	gnome-keyring-devel >= 0.7.92
+BuildRequires:	gnome-vfs2-devel >= 2.17.91
+BuildRequires:	gtk-doc >= 1.8
+BuildRequires:	gtk+2-devel >= 2:2.10.9
+BuildRequires:	intltool >= 0.35.5
+BuildRequires:	libbonoboui-devel >= 2.17.94
 BuildRequires:	libglade2-devel >= 1:2.6.0
-BuildRequires:	libgnome-devel >= 2.16.0
+BuildRequires:	libgnome-devel >= 2.17.92
 BuildRequires:	libgnomecanvas-devel >= 2.14.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.14.5
+BuildRequires:	pango-devel >= 1:1.16.0
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
-Requires:	gtk+2 >= 2:2.10.6
-Requires:	gnome-keyring-libs >= 0.6.0
-Requires:	gnome-vfs2-libs >= 2.16.1
-Requires:	libbonoboui >= 2.16.0
-Requires:	pango >= 1:1.14.5
+BuildRequires:	xorg-lib-libSM-devel
+Requires:	gtk+2 >= 2:2.10.9
+Requires:	gnome-keyring-libs >= 0.7.92
+Requires:	gnome-vfs2-libs >= 2.17.91
+Requires:	libbonoboui >= 2.17.94
+Requires:	pango >= 1:1.16.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -57,15 +57,15 @@ Summary:	Headers for libgnomeui
 Summary(pl.UTF-8):	Pliki nagłówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.14.0
-Requires:	esound-devel >= 1:0.2.31
-Requires:	gnome-keyring-devel >= 0.6.0
-Requires:	gnome-vfs2-devel >= 2.16.1
-Requires:	gtk+2-devel >= 2:2.10.6
-Requires:	libbonoboui-devel >= 2.16.0
+Requires:	GConf2-devel >= 2.16.1
+Requires:	gnome-keyring-devel >= 0.7.92
+Requires:	gnome-vfs2-devel >= 2.17.91
+Requires:	gtk+2-devel >= 2:2.10.9
+Requires:	libbonoboui-devel >= 2.17.94
 Requires:	libglade2-devel >= 1:2.6.0
 Requires:	libjpeg-devel
 Requires:	popt-devel >= 1.5
+Requires:	xorg-lib-libSM-devel
 
 %description devel
 GNOME (GNU Network Object Model Environment) is a user-friendly set of
@@ -107,6 +107,8 @@ Dokumentacja API libgnomeui.
 
 %build
 %{__gtkdocize}
+%{__glib_gettextize}
+%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -138,7 +140,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS ChangeLog MAINTAINERS NEWS README
 %attr(755,root,root) %{_libdir}/gnome_segv2
 %attr(755,root,root) %{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.so
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
