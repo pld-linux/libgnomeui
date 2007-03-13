@@ -2,11 +2,12 @@ Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.18.0
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.18/%{name}-%{version}.tar.bz2
 # Source0-md5:	06bb556b8c44cbbe1c1bd3b630485fcc
+Patch0:		%{name}-SMlib.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.18.0.1
 BuildRequires:	autoconf >= 2.54
@@ -104,6 +105,7 @@ Dokumentacja API libgnomeui.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__gtkdocize}
