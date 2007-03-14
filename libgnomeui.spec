@@ -1,22 +1,21 @@
 Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.18.0
-Release:	2
+Version:	2.18.1
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/gnome/sources/libgnomeui/2.18/%{name}-%{version}.tar.bz2
-# Source0-md5:	06bb556b8c44cbbe1c1bd3b630485fcc
-Patch0:		%{name}-SMlib.patch
+# Source0-md5:	dbdb274517ad643d9397dd6868788631
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.18.0.1
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gnome-keyring-devel >= 0.7.92
-BuildRequires:	gnome-vfs2-devel >= 2.18.0
+BuildRequires:	gnome-keyring-devel >= 0.8
+BuildRequires:	gnome-vfs2-devel >= 2.18.0.1
 BuildRequires:	gtk-doc >= 1.8
-BuildRequires:	gtk+2-devel >= 2:2.10.9
+BuildRequires:	gtk+2-devel >= 2:2.10.10
 BuildRequires:	intltool >= 0.35.5
 BuildRequires:	libbonoboui-devel >= 2.18.0
 BuildRequires:	libglade2-devel >= 1:2.6.0
@@ -24,17 +23,17 @@ BuildRequires:	libgnome-devel >= 2.18.0
 BuildRequires:	libgnomecanvas-devel >= 2.14.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.16.0
+BuildRequires:	pango-devel >= 1:1.16.1
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	xorg-lib-libSM-devel
-Requires:	gtk+2 >= 2:2.10.9
-Requires:	gnome-keyring-libs >= 0.7.92
-Requires:	gnome-vfs2-libs >= 2.18.0
+Requires:	gtk+2 >= 2:2.10.10
+Requires:	gnome-keyring-libs >= 0.8
+Requires:	gnome-vfs2-libs >= 2.18.0.1
 Requires:	libbonoboui >= 2.18.0
-Requires:	pango >= 1:1.16.0
+Requires:	pango >= 1:1.16.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -59,9 +58,9 @@ Summary(pl.UTF-8):	Pliki nagłówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.18.0.1
-Requires:	gnome-keyring-devel >= 0.7.92
-Requires:	gnome-vfs2-devel >= 2.18.0
-Requires:	gtk+2-devel >= 2:2.10.9
+Requires:	gnome-keyring-devel >= 0.8
+Requires:	gnome-vfs2-devel >= 2.18.0.1
+Requires:	gtk+2-devel >= 2:2.10.10
 Requires:	libbonoboui-devel >= 2.18.0
 Requires:	libglade2-devel >= 1:2.6.0
 Requires:	libjpeg-devel
@@ -105,7 +104,6 @@ Dokumentacja API libgnomeui.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__gtkdocize}
