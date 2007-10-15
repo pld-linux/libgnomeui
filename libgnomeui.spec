@@ -1,19 +1,19 @@
 Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.20.0
+Version:	2.20.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	1b4e98c8c34f69e456378316eab9289b
+# Source0-md5:	e943c3259f5914ef17bbc7d7778191c8
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-keyring-devel >= 2.20
+BuildRequires:	gnome-keyring-devel >= 2.20.0
 BuildRequires:	gnome-vfs2-devel >= 2.20.0
 BuildRequires:	gtk-doc >= 1.8
 BuildRequires:	gtk+2-devel >= 2:2.12.0
@@ -32,7 +32,7 @@ BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	xorg-lib-libSM-devel
 Requires:	gtk+2 >= 2:2.12.0
-Requires:	gnome-keyring-libs >= 2.20
+Requires:	gnome-keyring-libs >= 2.20.0
 Requires:	gnome-vfs2-libs >= 2.20.0
 Requires:	libbonoboui >= 2.20.0
 Requires:	pango >= 1:1.18.2
@@ -60,7 +60,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.20.0
-Requires:	gnome-keyring-devel >= 2.20
+Requires:	gnome-keyring-devel >= 2.20.0
 Requires:	gnome-vfs2-devel >= 2.20.0
 Requires:	gtk+2-devel >= 2:2.12.0
 Requires:	libbonoboui-devel >= 2.20.0
