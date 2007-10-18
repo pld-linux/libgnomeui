@@ -1,12 +1,12 @@
 Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.20.1
+Version:	2.20.1.1
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	e943c3259f5914ef17bbc7d7778191c8
+# Source0-md5:	d1f500c5d33ce93159b4952bb476fcf3
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	autoconf >= 2.54
