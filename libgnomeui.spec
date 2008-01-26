@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.20.1.1
 Release:	1
-License:	LGPL
+License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.20/%{name}-%{version}.tar.bz2
 # Source0-md5:	d1f500c5d33ce93159b4952bb476fcf3
@@ -156,21 +156,22 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog MAINTAINERS NEWS README
+%attr(755,root,root) %{_libdir}/libgnomeui-2.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libgnomeui-2.so.0
 %attr(755,root,root) %{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.so
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
-%attr(755,root,root) %{_libdir}/libglade/2.0/*.so
-%{_pixmapsdir}/*
+%attr(755,root,root) %{_libdir}/libglade/2.0/libgnome.so
+%{_pixmapsdir}/gnome-about-logo.png
 
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/libgnomeui-2.0
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_pkgconfigdir}/*.pc
+%attr(755,root,root) %{_libdir}/libgnomeui-2.so
+%{_libdir}/libgnomeui-2.la
+%{_pkgconfigdir}/libgnomeui-2.0.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libgnomeui-2.a
 
 %files apidocs
 %defattr(644,root,root,755)
