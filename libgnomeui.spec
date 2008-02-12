@@ -5,39 +5,39 @@
 Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.21.90
+Version:	2.21.91
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.21/%{name}-%{version}.tar.bz2
-# Source0-md5:	09c5c0de9e1f05e40638c975557661aa
+# Source0-md5:	8a5d7a0742d61aa99060a281adb52f42
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.20.0
+BuildRequires:	GConf2-devel >= 2.21.90
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.15.2
+BuildRequires:	glib2-devel >= 1:2.15.5
 BuildRequires:	gnome-keyring-devel >= 2.20.0
-BuildRequires:	gnome-vfs2-devel >= 2.20.0
+BuildRequires:	gnome-vfs2-devel >= 2.21.90
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
-BuildRequires:	gtk+2-devel >= 2:2.12.0
-BuildRequires:	intltool >= 0.36.2
+BuildRequires:	gtk+2-devel >= 2:2.12.5
+BuildRequires:	intltool >= 0.37.0
 BuildRequires:	libbonoboui-devel >= 2.20.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnome-devel >= 2.20.0
 BuildRequires:	libgnomecanvas-devel >= 2.20.0
 BuildRequires:	libjpeg-devel
-BuildRequires:	libxml2-devel >= 1:2.6.30
+BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	libtool
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	xorg-lib-libSM-devel
-Requires:	gtk+2 >= 2:2.12.0
+Requires:	gtk+2 >= 2:2.12.5
 Requires:	gnome-keyring-libs >= 2.20.0
-Requires:	gnome-vfs2-libs >= 2.20.0
+Requires:	gnome-vfs2-libs >= 2.21.90
 Requires:	libbonoboui >= 2.20.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -62,10 +62,10 @@ Summary:	Headers for libgnomeui
 Summary(pl.UTF-8):	Pliki nagłówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.20.0
+Requires:	GConf2-devel >= 2.21.90
 Requires:	gnome-keyring-devel >= 2.20.0
-Requires:	gnome-vfs2-devel >= 2.20.0
-Requires:	gtk+2-devel >= 2:2.12.0
+Requires:	gnome-vfs2-devel >= 2.21.90
+Requires:	gtk+2-devel >= 2:2.12.5
 Requires:	libbonoboui-devel >= 2.20.0
 Requires:	libglade2-devel >= 1:2.6.2
 Requires:	libjpeg-devel
