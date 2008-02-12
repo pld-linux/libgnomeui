@@ -142,6 +142,9 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/gnome/help,%{_examplesdir}/%{name}-%{vers
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
+# not supported by glibc
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/ps
+
 cp demos/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 # no static modules and *.la for libglade or vfs modules
