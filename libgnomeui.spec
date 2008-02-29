@@ -5,12 +5,12 @@
 Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.21.91
+Version:	2.21.92
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.21/%{name}-%{version}.tar.bz2
-# Source0-md5:	8a5d7a0742d61aa99060a281adb52f42
+# Source0-md5:	71445ea42fc2eb561f80d5a0a65e076a
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.21.90
 BuildRequires:	autoconf >= 2.54
@@ -18,7 +18,7 @@ BuildRequires:	automake >= 1:1.9
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.15.5
-BuildRequires:	gnome-keyring-devel >= 2.20.0
+BuildRequires:	gnome-keyring-devel >= 2.21.92
 BuildRequires:	gnome-vfs2-devel >= 2.21.90
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
 BuildRequires:	gtk+2-devel >= 2:2.12.5
@@ -36,7 +36,7 @@ BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	xorg-lib-libSM-devel
 Requires:	gtk+2 >= 2:2.12.5
-Requires:	gnome-keyring-libs >= 2.20.0
+Requires:	gnome-keyring-libs >= 2.21.92
 Requires:	gnome-vfs2-libs >= 2.21.90
 Requires:	libbonoboui >= 2.20.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -63,7 +63,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.21.90
-Requires:	gnome-keyring-devel >= 2.20.0
+Requires:	gnome-keyring-devel >= 2.21.92
 Requires:	gnome-vfs2-devel >= 2.21.90
 Requires:	gtk+2-devel >= 2:2.12.5
 Requires:	libbonoboui-devel >= 2.20.0
@@ -156,7 +156,7 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.*/filesystems/libgio.{la,a}
 rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}/libgnomeui
 %endif
 
-%find_lang %{name} --with-gnome --all-name
+%find_lang %{name}-2.0
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -164,7 +164,7 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files -f %{name}.lang
+%files -f %{name}-2.0.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog MAINTAINERS NEWS README
 %attr(755,root,root) %{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.so
