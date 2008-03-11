@@ -1,41 +1,44 @@
+#
+# Conditional build:
+%bcond_without	apidocs		# disable gtk-doc
+#
 Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.20.1.1
+Version:	2.22.0
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.20/%{name}-%{version}.tar.bz2
-# Source0-md5:	d1f500c5d33ce93159b4952bb476fcf3
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.22/%{name}-%{version}.tar.bz2
+# Source0-md5:	b55a741f2fb132655df906679e9a5bf4
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.20.0
+BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.54
-BuildRequires:	automake
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-keyring-devel >= 2.20.0
-BuildRequires:	gnome-vfs2-devel >= 2.20.0
-BuildRequires:	gtk-doc >= 1.8
-BuildRequires:	gtk+2-devel >= 2:2.12.0
-BuildRequires:	intltool >= 0.36.2
+BuildRequires:	glib2-devel >= 1:2.15.5
+BuildRequires:	gnome-keyring-devel >= 2.22.0
+BuildRequires:	gnome-vfs2-devel >= 2.22.0
+%{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
+BuildRequires:	gtk+2-devel >= 2:2.12.5
+BuildRequires:	intltool >= 0.37.0
 BuildRequires:	libbonoboui-devel >= 2.20.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnome-devel >= 2.20.0
 BuildRequires:	libgnomecanvas-devel >= 2.20.0
 BuildRequires:	libjpeg-devel
-BuildRequires:	libxml2-devel >= 2.6.30
+BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	libtool
-BuildRequires:	pango-devel >= 1:1.18.2
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	xorg-lib-libSM-devel
-Requires:	gtk+2 >= 2:2.12.0
-Requires:	gnome-keyring-libs >= 2.20.0
-Requires:	gnome-vfs2-libs >= 2.20.0
+Requires:	gtk+2 >= 2:2.12.5
+Requires:	gnome-keyring-libs >= 2.22.0
+Requires:	gnome-vfs2-libs >= 2.22.0
 Requires:	libbonoboui >= 2.20.0
-Requires:	pango >= 1:1.18.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -59,10 +62,10 @@ Summary:	Headers for libgnomeui
 Summary(pl.UTF-8):	Pliki nagłówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.20.0
-Requires:	gnome-keyring-devel >= 2.20.0
-Requires:	gnome-vfs2-devel >= 2.20.0
-Requires:	gtk+2-devel >= 2:2.12.0
+Requires:	GConf2-devel >= 2.22.0
+Requires:	gnome-keyring-devel >= 2.22.0
+Requires:	gnome-vfs2-devel >= 2.22.0
+Requires:	gtk+2-devel >= 2:2.12.5
 Requires:	libbonoboui-devel >= 2.20.0
 Requires:	libglade2-devel >= 1:2.6.2
 Requires:	libjpeg-devel
@@ -119,7 +122,7 @@ libgnomeui - przykładowe programy.
 %setup -q
 
 %build
-%{__gtkdocize}
+%{?with_apidocs:%{__gtkdocize}}
 %{__glib_gettextize}
 %{__intltoolize}
 %{__libtoolize}
@@ -127,7 +130,7 @@ libgnomeui - przykładowe programy.
 %{__autoconf}
 %{__automake}
 %configure \
-	--enable-gtk-doc \
+	--%{?with_apidocs:en}%{!?with_apidocs:dis}able-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
@@ -139,13 +142,21 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/gnome/help,%{_examplesdir}/%{name}-%{vers
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
+# not supported by glibc
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/ps
+
 cp demos/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 # no static modules and *.la for libglade or vfs modules
 rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a}
 rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.{la,a}
+rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.*/filesystems/libgio.{la,a}
 
-%find_lang %{name} --with-gnome --all-name
+%if %{without apidocs}
+rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}/libgnomeui
+%endif
+
+%find_lang %{name}-2.0
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -153,12 +164,13 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files -f %{name}.lang
+%files -f %{name}-2.0.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog MAINTAINERS NEWS README
+%attr(755,root,root) %{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.so
+%attr(755,root,root) %{_libdir}/gtk-2.0/2.*/filesystems/libgio.so
 %attr(755,root,root) %{_libdir}/libgnomeui-2.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libgnomeui-2.so.0
-%attr(755,root,root) %{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.so
 %attr(755,root,root) %{_libdir}/libglade/2.0/libgnome.so
 %{_pixmapsdir}/gnome-about-logo.png
 
@@ -173,9 +185,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libgnomeui-2.a
 
+%if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/%{name}
+%endif
 
 %files examples
 %defattr(644,root,root,755)
