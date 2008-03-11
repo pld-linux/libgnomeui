@@ -5,27 +5,27 @@
 Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.22.0
+Version:	2.22.01
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	b55a741f2fb132655df906679e9a5bf4
+# Source0-md5:	7d2bb24361f90201bcbf1327e1498251
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.15.5
+BuildRequires:	glib2-devel >= 1:2.16.1
 BuildRequires:	gnome-keyring-devel >= 2.22.0
 BuildRequires:	gnome-vfs2-devel >= 2.22.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
-BuildRequires:	gtk+2-devel >= 2:2.12.5
+BuildRequires:	gtk+2-devel >= 2:2.12.8
 BuildRequires:	intltool >= 0.37.0
-BuildRequires:	libbonoboui-devel >= 2.20.0
+BuildRequires:	libbonoboui-devel >= 2.22.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnome-devel >= 2.20.0
+BuildRequires:	libgnome-devel >= 2.22.0
 BuildRequires:	libgnomecanvas-devel >= 2.20.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libxml2-devel >= 1:2.6.31
@@ -35,10 +35,10 @@ BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	xorg-lib-libSM-devel
-Requires:	gtk+2 >= 2:2.12.5
+Requires:	gtk+2 >= 2:2.12.8
 Requires:	gnome-keyring-libs >= 2.22.0
 Requires:	gnome-vfs2-libs >= 2.22.0
-Requires:	libbonoboui >= 2.20.0
+Requires:	libbonoboui >= 2.22.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -65,8 +65,8 @@ Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.22.0
 Requires:	gnome-keyring-devel >= 2.22.0
 Requires:	gnome-vfs2-devel >= 2.22.0
-Requires:	gtk+2-devel >= 2:2.12.5
-Requires:	libbonoboui-devel >= 2.20.0
+Requires:	gtk+2-devel >= 2:2.12.8
+Requires:	libbonoboui-devel >= 2.22.0
 Requires:	libglade2-devel >= 1:2.6.2
 Requires:	libjpeg-devel
 Requires:	popt-devel >= 1.5
