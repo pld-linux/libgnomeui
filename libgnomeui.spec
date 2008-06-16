@@ -5,12 +5,12 @@
 Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.23.3
+Version:	2.23.4
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.23/%{name}-%{version}.tar.bz2
-# Source0-md5:	2d6b18267e376232df73cdb0249435c6
+# Source0-md5:	dedaaa47340fdacd91286dacdd4ab01b
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.54
@@ -22,7 +22,7 @@ BuildRequires:	gnome-keyring-devel >= 2.22.0
 BuildRequires:	gnome-vfs2-devel >= 2.22.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
 BuildRequires:	gtk+2-devel >= 2:2.12.8
-BuildRequires:	intltool >= 0.37.0
+BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libbonoboui-devel >= 2.22.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnome-devel >= 2.23.3
@@ -128,6 +128,7 @@ libgnomeui - przykładowe programy.
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--%{?with_apidocs:en}%{!?with_apidocs:dis}able-gtk-doc \
@@ -167,8 +168,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}-2.0.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog MAINTAINERS NEWS README
-%attr(755,root,root) %{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.so
-%attr(755,root,root) %{_libdir}/gtk-2.0/2.*/filesystems/libgio.so
 %attr(755,root,root) %{_libdir}/libgnomeui-2.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libgnomeui-2.so.0
 %attr(755,root,root) %{_libdir}/libglade/2.0/libgnome.so
