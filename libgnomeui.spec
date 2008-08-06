@@ -11,6 +11,8 @@ License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.23/%{name}-%{version}.tar.bz2
 # Source0-md5:	dedaaa47340fdacd91286dacdd4ab01b
+Patch0:		%{name}-gdestroynotify.patch
+Patch1:		%{name}-gtype.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.54
@@ -120,6 +122,8 @@ libgnomeui - przykładowe programy.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 %{?with_apidocs:%{__gtkdocize}}
