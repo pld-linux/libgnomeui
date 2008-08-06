@@ -1,0 +1,592 @@
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-appbar.h libgnomeui-2.23.4.new/libgnomeui/gnome-appbar.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-appbar.h	2008-05-29 18:37:08.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-appbar.h	2008-08-06 14:10:58.577685811 +0200
+@@ -37,11 +37,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_APPBAR            (gnome_appbar_get_type ())
+-#define GNOME_APPBAR(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_APPBAR, GnomeAppBar))
+-#define GNOME_APPBAR_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_APPBAR, GnomeAppBarClass))
+-#define GNOME_IS_APPBAR(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_APPBAR))
+-#define GNOME_IS_APPBAR_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_APPBAR))
+-#define GNOME_APPBAR_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_APPBAR, GnomeAppBarClass))
++#define GNOME_APPBAR(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_APPBAR, GnomeAppBar))
++#define GNOME_APPBAR_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_APPBAR, GnomeAppBarClass))
++#define GNOME_IS_APPBAR(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_APPBAR))
++#define GNOME_IS_APPBAR_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_APPBAR))
++#define GNOME_APPBAR_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_APPBAR, GnomeAppBarClass))
+ 
+ /* Used in gnome-app-util to determine the capabilities of the appbar */
+ #define GNOME_APPBAR_HAS_STATUS(appbar) (gnome_appbar_get_status(GNOME_APPBAR(appbar)) != NULL)
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-app.h libgnomeui-2.23.4.new/libgnomeui/gnome-app.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-app.h	2008-05-29 18:37:08.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-app.h	2008-08-06 14:10:58.578685620 +0200
+@@ -50,11 +50,11 @@
+ 
+ 
+ #define GNOME_TYPE_APP            (gnome_app_get_type ())
+-#define GNOME_APP(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_APP, GnomeApp))
+-#define GNOME_APP_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_APP, GnomeAppClass))
+-#define GNOME_IS_APP(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_APP))
+-#define GNOME_IS_APP_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_APP))
+-#define GNOME_APP_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_APP, GnomeAppClass))
++#define GNOME_APP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_APP, GnomeApp))
++#define GNOME_APP_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_APP, GnomeAppClass))
++#define GNOME_IS_APP(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_APP))
++#define GNOME_IS_APP_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_APP))
++#define GNOME_APP_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_APP, GnomeAppClass))
+ 
+ 
+ typedef struct _GnomeApp        GnomeApp;
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-client.h libgnomeui-2.23.4.new/libgnomeui/gnome-client.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-client.h	2008-08-06 14:14:06.080685705 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-client.h	2008-08-06 14:10:58.590685608 +0200
+@@ -36,11 +36,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_CLIENT            (gnome_client_get_type ())
+-#define GNOME_CLIENT(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_CLIENT, GnomeClient))
+-#define GNOME_CLIENT_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_CLIENT, GnomeClientClass))
+-#define GNOME_IS_CLIENT(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_CLIENT))
+-#define GNOME_IS_CLIENT_CLASS(klass) (GTK_CHECK_CLASS_TYPE (((klass), GNOME_TYPE_CLIENT))
+-#define GNOME_CLIENT_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_CLIENT, GnomeClientClass))
++#define GNOME_CLIENT(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_CLIENT, GnomeClient))
++#define GNOME_CLIENT_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_CLIENT, GnomeClientClass))
++#define GNOME_IS_CLIENT(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_CLIENT))
++#define GNOME_IS_CLIENT_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE (((klass), GNOME_TYPE_CLIENT))
++#define GNOME_CLIENT_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_CLIENT, GnomeClientClass))
+ 
+ #define GNOME_CLIENT_CONNECTED(obj) (GNOME_CLIENT (obj)->smc_conn)
+ 
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-color-picker.h libgnomeui-2.23.4.new/libgnomeui/gnome-color-picker.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-color-picker.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-color-picker.h	2008-08-06 14:10:58.591685597 +0200
+@@ -46,11 +46,11 @@
+  */
+ 
+ #define GNOME_TYPE_COLOR_PICKER            (gnome_color_picker_get_type ())
+-#define GNOME_COLOR_PICKER(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_COLOR_PICKER, GnomeColorPicker))
+-#define GNOME_COLOR_PICKER_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_COLOR_PICKER, GnomeColorPickerClass))
+-#define GNOME_IS_COLOR_PICKER(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_COLOR_PICKER))
+-#define GNOME_IS_COLOR_PICKER_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_COLOR_PICKER))
+-#define GNOME_COLOR_PICKER_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_COLOR_PICKER, GnomeColorPickerClass))
++#define GNOME_COLOR_PICKER(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_COLOR_PICKER, GnomeColorPicker))
++#define GNOME_COLOR_PICKER_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_COLOR_PICKER, GnomeColorPickerClass))
++#define GNOME_IS_COLOR_PICKER(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_COLOR_PICKER))
++#define GNOME_IS_COLOR_PICKER_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_COLOR_PICKER))
++#define GNOME_COLOR_PICKER_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_COLOR_PICKER, GnomeColorPickerClass))
+ 
+ 
+ typedef struct _GnomeColorPicker        GnomeColorPicker;
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-dateedit.c libgnomeui-2.23.4.new/libgnomeui/gnome-dateedit.c
+--- libgnomeui-2.23.4/libgnomeui/gnome-dateedit.c	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-dateedit.c	2008-08-06 14:12:03.018695975 +0200
+@@ -120,7 +120,7 @@
+ /**
+  * gnome_date_edit_get_type:
+  *
+- * Returns the GtkType for the GnomeDateEdit widget
++ * Returns the GType for the GnomeDateEdit widget
+  */
+ /* The following macro defines the get_type */
+ GNOME_CLASS_BOILERPLATE(GnomeDateEdit, gnome_date_edit,
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-dateedit.h libgnomeui-2.23.4.new/libgnomeui/gnome-dateedit.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-dateedit.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-dateedit.h	2008-08-06 14:10:58.592685583 +0200
+@@ -42,11 +42,11 @@
+ 
+ 
+ #define GNOME_TYPE_DATE_EDIT            (gnome_date_edit_get_type ())
+-#define GNOME_DATE_EDIT(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_DATE_EDIT, GnomeDateEdit))
+-#define GNOME_DATE_EDIT_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_DATE_EDIT, GnomeDateEditClass))
+-#define GNOME_IS_DATE_EDIT(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_DATE_EDIT))
+-#define GNOME_IS_DATE_EDIT_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_DATE_EDIT))
+-#define GNOME_DATE_EDIT_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_DATE_EDIT, GnomeDateEditClass))
++#define GNOME_DATE_EDIT(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_DATE_EDIT, GnomeDateEdit))
++#define GNOME_DATE_EDIT_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_DATE_EDIT, GnomeDateEditClass))
++#define GNOME_IS_DATE_EDIT(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_DATE_EDIT))
++#define GNOME_IS_DATE_EDIT_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_DATE_EDIT))
++#define GNOME_DATE_EDIT_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_DATE_EDIT, GnomeDateEditClass))
+ 
+ typedef struct _GnomeDateEdit        GnomeDateEdit;
+ typedef struct _GnomeDateEditPrivate GnomeDateEditPrivate;
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-dialog.h libgnomeui-2.23.4.new/libgnomeui/gnome-dialog.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-dialog.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-dialog.h	2008-08-06 14:10:58.593685572 +0200
+@@ -36,11 +36,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_DIALOG            (gnome_dialog_get_type ())
+-#define GNOME_DIALOG(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_DIALOG, GnomeDialog))
+-#define GNOME_DIALOG_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_DIALOG, GnomeDialogClass))
+-#define GNOME_IS_DIALOG(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_DIALOG))
+-#define GNOME_IS_DIALOG_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_DIALOG))
+-#define GNOME_DIALOG_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_DIALOG, GnomeDialogClass))
++#define GNOME_DIALOG(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_DIALOG, GnomeDialog))
++#define GNOME_DIALOG_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_DIALOG, GnomeDialogClass))
++#define GNOME_IS_DIALOG(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_DIALOG))
++#define GNOME_IS_DIALOG_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_DIALOG))
++#define GNOME_DIALOG_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_DIALOG, GnomeDialogClass))
+ 
+ typedef struct _GnomeDialog        GnomeDialog;
+ typedef struct _GnomeDialogClass   GnomeDialogClass;
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-druid.c libgnomeui-2.23.4.new/libgnomeui/gnome-druid.c
+--- libgnomeui-2.23.4/libgnomeui/gnome-druid.c	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-druid.c	2008-08-06 14:11:51.354685901 +0200
+@@ -71,7 +71,7 @@
+ 					    GdkEventExpose  *event);
+ static void    gnome_druid_map             (GtkWidget       *widget);
+ static void    gnome_druid_unmap           (GtkWidget       *widget);
+-static GtkType gnome_druid_child_type      (GtkContainer    *container);
++static GType   gnome_druid_child_type      (GtkContainer    *container);
+ static void    gnome_druid_add             (GtkContainer    *widget,
+ 					    GtkWidget       *page);
+ static void    gnome_druid_remove          (GtkContainer    *widget,
+@@ -479,7 +479,7 @@
+ 	}
+ }
+ 
+-static GtkType
++static GType
+ gnome_druid_child_type (GtkContainer *container)
+ {
+ 	return GNOME_TYPE_DRUID_PAGE;
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-druid.h libgnomeui-2.23.4.new/libgnomeui/gnome-druid.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-druid.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-druid.h	2008-08-06 14:10:58.595685848 +0200
+@@ -33,11 +33,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_DRUID            (gnome_druid_get_type ())
+-#define GNOME_DRUID(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_DRUID, GnomeDruid))
+-#define GNOME_DRUID_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_DRUID, GnomeDruidClass))
+-#define GNOME_IS_DRUID(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_DRUID))
+-#define GNOME_IS_DRUID_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_DRUID))
+-#define GNOME_DRUID_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_DRUID, GnomeDruidClass))
++#define GNOME_DRUID(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_DRUID, GnomeDruid))
++#define GNOME_DRUID_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_DRUID, GnomeDruidClass))
++#define GNOME_IS_DRUID(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_DRUID))
++#define GNOME_IS_DRUID_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_DRUID))
++#define GNOME_DRUID_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_DRUID, GnomeDruidClass))
+ 
+ 
+ typedef struct _GnomeDruid        GnomeDruid;
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-druid-page-edge.h libgnomeui-2.23.4.new/libgnomeui/gnome-druid-page-edge.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-druid-page-edge.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-druid-page-edge.h	2008-08-06 14:10:58.596685679 +0200
+@@ -33,11 +33,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_DRUID_PAGE_EDGE            (gnome_druid_page_edge_get_type ())
+-#define GNOME_DRUID_PAGE_EDGE(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_DRUID_PAGE_EDGE, GnomeDruidPageEdge))
+-#define GNOME_DRUID_PAGE_EDGE_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_DRUID_PAGE_EDGE, GnomeDruidPageEdgeClass))
+-#define GNOME_IS_DRUID_PAGE_EDGE(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_DRUID_PAGE_EDGE))
+-#define GNOME_IS_DRUID_PAGE_EDGE_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_DRUID_PAGE_EDGE))
+-#define GNOME_DRUID_PAGE_EDGE_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_DRUID_PAGE_EDGE, GnomeDruidPageEdgeClass))
++#define GNOME_DRUID_PAGE_EDGE(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_DRUID_PAGE_EDGE, GnomeDruidPageEdge))
++#define GNOME_DRUID_PAGE_EDGE_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_DRUID_PAGE_EDGE, GnomeDruidPageEdgeClass))
++#define GNOME_IS_DRUID_PAGE_EDGE(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_DRUID_PAGE_EDGE))
++#define GNOME_IS_DRUID_PAGE_EDGE_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_DRUID_PAGE_EDGE))
++#define GNOME_DRUID_PAGE_EDGE_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_DRUID_PAGE_EDGE, GnomeDruidPageEdgeClass))
+ 
+ /**
+  * GnomeEdgePosition:
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-druid-page.h libgnomeui-2.23.4.new/libgnomeui/gnome-druid-page.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-druid-page.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-druid-page.h	2008-08-06 14:10:58.597685571 +0200
+@@ -32,11 +32,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_DRUID_PAGE            (gnome_druid_page_get_type ())
+-#define GNOME_DRUID_PAGE(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_DRUID_PAGE, GnomeDruidPage))
+-#define GNOME_DRUID_PAGE_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_DRUID_PAGE, GnomeDruidPageClass))
+-#define GNOME_IS_DRUID_PAGE(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_DRUID_PAGE))
+-#define GNOME_IS_DRUID_PAGE_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_DRUID_PAGE))
+-#define GNOME_DRUID_PAGE_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_DRUID_PAGE, GnomeDruidPageClass))
++#define GNOME_DRUID_PAGE(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_DRUID_PAGE, GnomeDruidPage))
++#define GNOME_DRUID_PAGE_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_DRUID_PAGE, GnomeDruidPageClass))
++#define GNOME_IS_DRUID_PAGE(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_DRUID_PAGE))
++#define GNOME_IS_DRUID_PAGE_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_DRUID_PAGE))
++#define GNOME_DRUID_PAGE_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_DRUID_PAGE, GnomeDruidPageClass))
+ 
+ 
+ typedef struct _GnomeDruidPage        GnomeDruidPage;
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-druid-page-standard.h libgnomeui-2.23.4.new/libgnomeui/gnome-druid-page-standard.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-druid-page-standard.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-druid-page-standard.h	2008-08-06 14:10:58.597685571 +0200
+@@ -32,11 +32,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_DRUID_PAGE_STANDARD            (gnome_druid_page_standard_get_type ())
+-#define GNOME_DRUID_PAGE_STANDARD(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_DRUID_PAGE_STANDARD, GnomeDruidPageStandard))
+-#define GNOME_DRUID_PAGE_STANDARD_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_DRUID_PAGE_STANDARD, GnomeDruidPageStandardClass))
+-#define GNOME_IS_DRUID_PAGE_STANDARD(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_DRUID_PAGE_STANDARD))
+-#define GNOME_IS_DRUID_PAGE_STANDARD_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_DRUID_PAGE_STANDARD))
+-#define GNOME_DRUID_PAGE_STANDARD_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_DRUID_PAGE_STANDARD, GnomeDruidPageStandardClass))
++#define GNOME_DRUID_PAGE_STANDARD(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_DRUID_PAGE_STANDARD, GnomeDruidPageStandard))
++#define GNOME_DRUID_PAGE_STANDARD_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_DRUID_PAGE_STANDARD, GnomeDruidPageStandardClass))
++#define GNOME_IS_DRUID_PAGE_STANDARD(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_DRUID_PAGE_STANDARD))
++#define GNOME_IS_DRUID_PAGE_STANDARD_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_DRUID_PAGE_STANDARD))
++#define GNOME_DRUID_PAGE_STANDARD_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_DRUID_PAGE_STANDARD, GnomeDruidPageStandardClass))
+ 
+ 
+ typedef struct _GnomeDruidPageStandard        GnomeDruidPageStandard;
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-entry.h libgnomeui-2.23.4.new/libgnomeui/gnome-entry.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-entry.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-entry.h	2008-08-06 14:10:58.603685995 +0200
+@@ -41,11 +41,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_ENTRY            (gnome_entry_get_type ())
+-#define GNOME_ENTRY(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_ENTRY, GnomeEntry))
+-#define GNOME_ENTRY_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_ENTRY, GnomeEntryClass))
+-#define GNOME_IS_ENTRY(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_ENTRY))
+-#define GNOME_IS_ENTRY_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_ENTRY))
+-#define GNOME_ENTRY_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_ENTRY, GnomeEntryClass))
++#define GNOME_ENTRY(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_ENTRY, GnomeEntry))
++#define GNOME_ENTRY_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_ENTRY, GnomeEntryClass))
++#define GNOME_IS_ENTRY(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_ENTRY))
++#define GNOME_IS_ENTRY_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_ENTRY))
++#define GNOME_ENTRY_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_ENTRY, GnomeEntryClass))
+ 
+ /* This also supports the GtkEditable interface so
+  * to get text use the gtk_editable_get_chars method
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-file-entry.h libgnomeui-2.23.4.new/libgnomeui/gnome-file-entry.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-file-entry.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-file-entry.h	2008-08-06 14:10:58.604685767 +0200
+@@ -44,11 +44,11 @@
+ 
+ 
+ #define GNOME_TYPE_FILE_ENTRY            (gnome_file_entry_get_type ())
+-#define GNOME_FILE_ENTRY(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_FILE_ENTRY, GnomeFileEntry))
+-#define GNOME_FILE_ENTRY_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_FILE_ENTRY, GnomeFileEntryClass))
+-#define GNOME_IS_FILE_ENTRY(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_FILE_ENTRY))
+-#define GNOME_IS_FILE_ENTRY_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_FILE_ENTRY))
+-#define GNOME_FILE_ENTRY_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_FILE_ENTRY, GnomeFileEntryClass))
++#define GNOME_FILE_ENTRY(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_FILE_ENTRY, GnomeFileEntry))
++#define GNOME_FILE_ENTRY_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_FILE_ENTRY, GnomeFileEntryClass))
++#define GNOME_IS_FILE_ENTRY(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_FILE_ENTRY))
++#define GNOME_IS_FILE_ENTRY_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_FILE_ENTRY))
++#define GNOME_FILE_ENTRY_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_FILE_ENTRY, GnomeFileEntryClass))
+ 
+ /* Note:  This supports GtkEditable interface */
+ 
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-font-picker.h libgnomeui-2.23.4.new/libgnomeui/gnome-font-picker.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-font-picker.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-font-picker.h	2008-08-06 14:10:58.605685696 +0200
+@@ -39,11 +39,11 @@
+ } GnomeFontPickerMode;
+         
+ #define GNOME_TYPE_FONT_PICKER            (gnome_font_picker_get_type ())
+-#define GNOME_FONT_PICKER(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_FONT_PICKER, GnomeFontPicker))
+-#define GNOME_FONT_PICKER_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_FONT_PICKER, GnomeFontPickerClass))
+-#define GNOME_IS_FONT_PICKER(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_FONT_PICKER))
+-#define GNOME_IS_FONT_PICKER_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_FONT_PICKER))
+-#define GNOME_FONT_PICKER_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_FONT_PICKER, GnomeFontPickerClass))
++#define GNOME_FONT_PICKER(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_FONT_PICKER, GnomeFontPicker))
++#define GNOME_FONT_PICKER_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_FONT_PICKER, GnomeFontPickerClass))
++#define GNOME_IS_FONT_PICKER(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_FONT_PICKER))
++#define GNOME_IS_FONT_PICKER_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_FONT_PICKER))
++#define GNOME_FONT_PICKER_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_FONT_PICKER, GnomeFontPickerClass))
+ 
+ typedef struct _GnomeFontPicker        GnomeFontPicker;
+ typedef struct _GnomeFontPickerPrivate GnomeFontPickerPrivate;
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-href.h libgnomeui-2.23.4.new/libgnomeui/gnome-href.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-href.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-href.h	2008-08-06 14:10:58.606685584 +0200
+@@ -32,11 +32,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_HREF            (gnome_href_get_type ())
+-#define GNOME_HREF(obj)            (GTK_CHECK_CAST((obj), GNOME_TYPE_HREF, GnomeHRef))
+-#define GNOME_HREF_CLASS(klass)    (GTK_CHECK_CLASS_CAST((klass), GNOME_TYPE_HREF, GnomeHRefClass))
+-#define GNOME_IS_HREF(obj)         (GTK_CHECK_TYPE((obj), GNOME_TYPE_HREF))
+-#define GNOME_IS_HREF_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_HREF))
+-#define GNOME_HREF_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_HREF, GnomeHRefClass))
++#define GNOME_HREF(obj)            (G_TYPE_CHECK_INSTANCE_CAST((obj), GNOME_TYPE_HREF, GnomeHRef))
++#define GNOME_HREF_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST((klass), GNOME_TYPE_HREF, GnomeHRefClass))
++#define GNOME_IS_HREF(obj)         (G_TYPE_CHECK_INSTANCE_TYPE((obj), GNOME_TYPE_HREF))
++#define GNOME_IS_HREF_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_HREF))
++#define GNOME_HREF_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_HREF, GnomeHRefClass))
+ 
+ typedef struct _GnomeHRef        GnomeHRef;
+ typedef struct _GnomeHRefPrivate GnomeHRefPrivate;
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-icon-entry.h libgnomeui-2.23.4.new/libgnomeui/gnome-icon-entry.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-icon-entry.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-icon-entry.h	2008-08-06 14:10:58.607685547 +0200
+@@ -47,11 +47,11 @@
+ 
+ 
+ #define GNOME_TYPE_ICON_ENTRY            (gnome_icon_entry_get_type ())
+-#define GNOME_ICON_ENTRY(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_ICON_ENTRY, GnomeIconEntry))
+-#define GNOME_ICON_ENTRY_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_ICON_ENTRY, GnomeIconEntryClass))
+-#define GNOME_IS_ICON_ENTRY(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_ICON_ENTRY))
+-#define GNOME_IS_ICON_ENTRY_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_ICON_ENTRY))
+-#define GNOME_ICON_ENTRY_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_ICON_ENTRY, GnomeIconEntryClass))
++#define GNOME_ICON_ENTRY(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_ICON_ENTRY, GnomeIconEntry))
++#define GNOME_ICON_ENTRY_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_ICON_ENTRY, GnomeIconEntryClass))
++#define GNOME_IS_ICON_ENTRY(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_ICON_ENTRY))
++#define GNOME_IS_ICON_ENTRY_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_ICON_ENTRY))
++#define GNOME_ICON_ENTRY_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_ICON_ENTRY, GnomeIconEntryClass))
+ 
+ 
+ typedef struct _GnomeIconEntry         GnomeIconEntry;
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-icon-item.h libgnomeui-2.23.4.new/libgnomeui/gnome-icon-item.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-icon-item.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-icon-item.h	2008-08-06 14:10:58.613695839 +0200
+@@ -41,11 +41,11 @@
+ typedef struct _GnomeIconTextItemPrivate GnomeIconTextItemPrivate;
+ 
+ #define GNOME_TYPE_ICON_TEXT_ITEM            (gnome_icon_text_item_get_type ())
+-#define GNOME_ICON_TEXT_ITEM(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_ICON_TEXT_ITEM, GnomeIconTextItem))
+-#define GNOME_ICON_TEXT_ITEM_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_ICON_TEXT_ITEM, GnomeIconTextItemClass))
+-#define GNOME_IS_ICON_TEXT_ITEM(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_ICON_TEXT_ITEM))
+-#define GNOME_IS_ICON_TEXT_ITEM_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_ICON_TEXT_ITEM))
+-#define GNOME_ICON_TEXT_ITEM_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_ICON_TEXT_ITEM, GnomeIconTextItemClass))
++#define GNOME_ICON_TEXT_ITEM(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_ICON_TEXT_ITEM, GnomeIconTextItem))
++#define GNOME_ICON_TEXT_ITEM_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_ICON_TEXT_ITEM, GnomeIconTextItemClass))
++#define GNOME_IS_ICON_TEXT_ITEM(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_ICON_TEXT_ITEM))
++#define GNOME_IS_ICON_TEXT_ITEM_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_ICON_TEXT_ITEM))
++#define GNOME_ICON_TEXT_ITEM_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_ICON_TEXT_ITEM, GnomeIconTextItemClass))
+ 
+ struct _GnomeIconTextItem {
+ 	GnomeCanvasItem parent_instance;
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-icon-list.h libgnomeui-2.23.4.new/libgnomeui/gnome-icon-list.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-icon-list.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-icon-list.h	2008-08-06 14:10:58.615685623 +0200
+@@ -46,11 +46,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_ICON_LIST            (gnome_icon_list_get_type ())
+-#define GNOME_ICON_LIST(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_ICON_LIST, GnomeIconList))
+-#define GNOME_ICON_LIST_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_ICON_LIST, GnomeIconListClass))
+-#define GNOME_IS_ICON_LIST(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_ICON_LIST))
+-#define GNOME_IS_ICON_LIST_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_ICON_LIST))
+-#define GNOME_ICON_LIST_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_ICON_LIST, GnomeIconListClass))
++#define GNOME_ICON_LIST(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_ICON_LIST, GnomeIconList))
++#define GNOME_ICON_LIST_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_ICON_LIST, GnomeIconListClass))
++#define GNOME_IS_ICON_LIST(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_ICON_LIST))
++#define GNOME_IS_ICON_LIST_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_ICON_LIST))
++#define GNOME_ICON_LIST_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_ICON_LIST, GnomeIconListClass))
+ 
+ typedef struct _GnomeIconList        GnomeIconList;
+ typedef struct _GnomeIconListPrivate GnomeIconListPrivate;
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-icon-sel.h libgnomeui-2.23.4.new/libgnomeui/gnome-icon-sel.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-icon-sel.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-icon-sel.h	2008-08-06 14:10:58.622695859 +0200
+@@ -35,11 +35,11 @@
+ typedef struct _GnomeIconSelectionClass   GnomeIconSelectionClass;
+ 
+ #define GNOME_TYPE_ICON_SELECTION            (gnome_icon_selection_get_type ())
+-#define GNOME_ICON_SELECTION(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_ICON_SELECTION, GnomeIconSelection))
+-#define GNOME_ICON_SELECTION_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_ICON_SELECTION, GnomeIconSelectionClass))
+-#define GNOME_IS_ICON_SELECTION(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_ICON_SELECTION))
+-#define GNOME_IS_ICON_SELECTION_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_ICON_SELECTION))
+-#define GNOME_ICON_SELECTION_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_ICON_SELECTION, GnomeIconSelectionClass))
++#define GNOME_ICON_SELECTION(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_ICON_SELECTION, GnomeIconSelection))
++#define GNOME_ICON_SELECTION_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_ICON_SELECTION, GnomeIconSelectionClass))
++#define GNOME_IS_ICON_SELECTION(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_ICON_SELECTION))
++#define GNOME_IS_ICON_SELECTION_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_ICON_SELECTION))
++#define GNOME_ICON_SELECTION_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_ICON_SELECTION, GnomeIconSelectionClass))
+ 
+ struct _GnomeIconSelection {
+   GtkVBox vbox;
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-mdi-child.h libgnomeui-2.23.4.new/libgnomeui/gnome-mdi-child.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-mdi-child.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-mdi-child.h	2008-08-06 14:10:58.632685764 +0200
+@@ -35,11 +35,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_MDI_CHILD            (gnome_mdi_child_get_type ())
+-#define GNOME_MDI_CHILD(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_MDI_CHILD, GnomeMDIChild))
+-#define GNOME_MDI_CHILD_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_MDI_CHILD, GnomeMDIChildClass))
+-#define GNOME_IS_MDI_CHILD(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_MDI_CHILD))
+-#define GNOME_IS_MDI_CHILD_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_MDI_CHILD))
+-#define GNOME_MDI_CHILD_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_MDI_CHILD, GnomeMDIChildClass))
++#define GNOME_MDI_CHILD(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_MDI_CHILD, GnomeMDIChild))
++#define GNOME_MDI_CHILD_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_MDI_CHILD, GnomeMDIChildClass))
++#define GNOME_IS_MDI_CHILD(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_MDI_CHILD))
++#define GNOME_IS_MDI_CHILD_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_MDI_CHILD))
++#define GNOME_MDI_CHILD_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_MDI_CHILD, GnomeMDIChildClass))
+ 
+ typedef struct _GnomeMDIChild        GnomeMDIChild;
+ typedef struct _GnomeMDIChildClass   GnomeMDIChildClass;
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-mdi-generic-child.h libgnomeui-2.23.4.new/libgnomeui/gnome-mdi-generic-child.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-mdi-generic-child.h	2008-08-06 14:14:06.081685604 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-mdi-generic-child.h	2008-08-06 14:10:58.640695904 +0200
+@@ -35,11 +35,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_MDI_GENERIC_CHILD            (gnome_mdi_generic_child_get_type ())
+-#define GNOME_MDI_GENERIC_CHILD(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_MDI_GENERIC_CHILD, GnomeMDIGenericChild))
+-#define GNOME_MDI_GENERIC_CHILD_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_MDI_GENERIC_CHILD, GnomeMDIGenericChildClass))
+-#define GNOME_IS_MDI_GENERIC_CHILD(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_MDI_GENERIC_CHILD))
+-#define GNOME_IS_MDI_GENERIC_CHILD_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_MDI_GENERIC_CHILD))
+-#define GNOME_MDI_GENERIC_CHILD_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_MDI_GENERIC_CHILD, GnomeMDIGenericChildClass))
++#define GNOME_MDI_GENERIC_CHILD(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_MDI_GENERIC_CHILD, GnomeMDIGenericChild))
++#define GNOME_MDI_GENERIC_CHILD_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_MDI_GENERIC_CHILD, GnomeMDIGenericChildClass))
++#define GNOME_IS_MDI_GENERIC_CHILD(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_MDI_GENERIC_CHILD))
++#define GNOME_IS_MDI_GENERIC_CHILD_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_MDI_GENERIC_CHILD))
++#define GNOME_MDI_GENERIC_CHILD_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_MDI_GENERIC_CHILD, GnomeMDIGenericChildClass))
+ /* The source backward-compatibility macro GNOME_IS_MDI_MDI_CHILD(obj)
+    is in gnome-compat.h.  */
+ 
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-mdi.h libgnomeui-2.23.4.new/libgnomeui/gnome-mdi.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-mdi.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-mdi.h	2008-08-06 14:10:58.641685770 +0200
+@@ -36,11 +36,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_MDI            (gnome_mdi_get_type ())
+-#define GNOME_MDI(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_MDI, GnomeMDI))
+-#define GNOME_MDI_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_MDI, GnomeMDIClass))
+-#define GNOME_IS_MDI(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_MDI))
+-#define GNOME_IS_MDI_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_MDI))
+-#define GNOME_MDI_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_MDI, GnomeMDIClass))
++#define GNOME_MDI(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_MDI, GnomeMDI))
++#define GNOME_MDI_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_MDI, GnomeMDIClass))
++#define GNOME_IS_MDI(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_MDI))
++#define GNOME_IS_MDI_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_MDI))
++#define GNOME_MDI_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_MDI, GnomeMDIClass))
+ 
+ typedef struct _GnomeMDI        GnomeMDI;
+ typedef struct _GnomeMDIClass   GnomeMDIClass;
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-messagebox.h libgnomeui-2.23.4.new/libgnomeui/gnome-messagebox.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-messagebox.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-messagebox.h	2008-08-06 14:10:58.650716235 +0200
+@@ -29,11 +29,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_MESSAGE_BOX            (gnome_message_box_get_type ())
+-#define GNOME_MESSAGE_BOX(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_MESSAGE_BOX, GnomeMessageBox))
+-#define GNOME_MESSAGE_BOX_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_MESSAGE_BOX, GnomeMessageBoxClass))
+-#define GNOME_IS_MESSAGE_BOX(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_MESSAGE_BOX))
+-#define GNOME_IS_MESSAGE_BOX_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_MESSAGE_BOX))
+-#define GNOME_MESSAGE_BOX_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_MESSAGE_BOX, GnomeMessageBoxClass))
++#define GNOME_MESSAGE_BOX(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_MESSAGE_BOX, GnomeMessageBox))
++#define GNOME_MESSAGE_BOX_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_MESSAGE_BOX, GnomeMessageBoxClass))
++#define GNOME_IS_MESSAGE_BOX(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_MESSAGE_BOX))
++#define GNOME_IS_MESSAGE_BOX_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_MESSAGE_BOX))
++#define GNOME_MESSAGE_BOX_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_MESSAGE_BOX, GnomeMessageBoxClass))
+ 
+ 
+ #define GNOME_MESSAGE_BOX_INFO      "info"
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-password-dialog.h libgnomeui-2.23.4.new/libgnomeui/gnome-password-dialog.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-password-dialog.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-password-dialog.h	2008-08-06 14:12:14.265695886 +0200
+@@ -30,10 +30,10 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_PASSWORD_DIALOG            (gnome_password_dialog_get_type ())
+-#define GNOME_PASSWORD_DIALOG(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_PASSWORD_DIALOG, GnomePasswordDialog))
+-#define GNOME_PASSWORD_DIALOG_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_PASSWORD_DIALOG, GnomePasswordDialogClass))
+-#define GNOME_IS_PASSWORD_DIALOG(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_PASSWORD_DIALOG))
+-#define GNOME_IS_PASSWORD_DIALOG_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_PASSWORD_DIALOG))
++#define GNOME_PASSWORD_DIALOG(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_PASSWORD_DIALOG, GnomePasswordDialog))
++#define GNOME_PASSWORD_DIALOG_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_PASSWORD_DIALOG, GnomePasswordDialogClass))
++#define GNOME_IS_PASSWORD_DIALOG(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_PASSWORD_DIALOG))
++#define GNOME_IS_PASSWORD_DIALOG_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_PASSWORD_DIALOG))
+ 
+ typedef struct _GnomePasswordDialog        GnomePasswordDialog;
+ typedef struct _GnomePasswordDialogClass   GnomePasswordDialogClass;
+@@ -61,7 +61,7 @@
+  						    const char *password,
+ 						    gpointer user_data);
+ 
+-GtkType    gnome_password_dialog_get_type (void);
++GType      gnome_password_dialog_get_type (void);
+ GtkWidget* gnome_password_dialog_new      (const char *dialog_title,
+ 					   const char *message,
+ 					   const char *username,
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-pixmap-entry.h libgnomeui-2.23.4.new/libgnomeui/gnome-pixmap-entry.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-pixmap-entry.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-pixmap-entry.h	2008-08-06 14:10:58.660685649 +0200
+@@ -43,11 +43,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_PIXMAP_ENTRY            (gnome_pixmap_entry_get_type ())
+-#define GNOME_PIXMAP_ENTRY(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_PIXMAP_ENTRY, GnomePixmapEntry))
+-#define GNOME_PIXMAP_ENTRY_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_PIXMAP_ENTRY, GnomePixmapEntryClass))
+-#define GNOME_IS_PIXMAP_ENTRY(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_PIXMAP_ENTRY))
+-#define GNOME_IS_PIXMAP_ENTRY_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_PIXMAP_ENTRY))
+-#define GNOME_PIXMAP_ENTRY_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_PIXMAP_ENTRY, GnomePixmapEntryClass))
++#define GNOME_PIXMAP_ENTRY(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_PIXMAP_ENTRY, GnomePixmapEntry))
++#define GNOME_PIXMAP_ENTRY_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_PIXMAP_ENTRY, GnomePixmapEntryClass))
++#define GNOME_IS_PIXMAP_ENTRY(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_PIXMAP_ENTRY))
++#define GNOME_IS_PIXMAP_ENTRY_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_PIXMAP_ENTRY))
++#define GNOME_PIXMAP_ENTRY_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_PIXMAP_ENTRY, GnomePixmapEntryClass))
+ 
+ /* Note:  This derives from GnomeFileEntry and thus supports GtkEditable
+  * interface */
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-pixmap.h libgnomeui-2.23.4.new/libgnomeui/gnome-pixmap.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-pixmap.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-pixmap.h	2008-08-06 14:10:58.668695909 +0200
+@@ -41,11 +41,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_PIXMAP            (gnome_pixmap_get_type ())
+-#define GNOME_PIXMAP(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_PIXMAP, GnomePixmap))
+-#define GNOME_PIXMAP_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_PIXMAP, GnomePixmapClass))
+-#define GNOME_IS_PIXMAP(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_PIXMAP))
+-#define GNOME_IS_PIXMAP_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_PIXMAP))
+-#define GNOME_PIXMAP_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_PIXMAP, GnomePixmapClass))
++#define GNOME_PIXMAP(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_PIXMAP, GnomePixmap))
++#define GNOME_PIXMAP_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_PIXMAP, GnomePixmapClass))
++#define GNOME_IS_PIXMAP(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_PIXMAP))
++#define GNOME_IS_PIXMAP_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_PIXMAP))
++#define GNOME_PIXMAP_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_PIXMAP, GnomePixmapClass))
+ 
+ /* Note:
+  * You should use GtkImage if you can, this is just a compatibility wrapper to get
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-propertybox.h libgnomeui-2.23.4.new/libgnomeui/gnome-propertybox.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-propertybox.h	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-propertybox.h	2008-08-06 14:10:58.669686023 +0200
+@@ -31,11 +31,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_PROPERTY_BOX            (gnome_property_box_get_type ())
+-#define GNOME_PROPERTY_BOX(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_PROPERTY_BOX, GnomePropertyBox))
+-#define GNOME_PROPERTY_BOX_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_PROPERTY_BOX, GnomePropertyBoxClass))
+-#define GNOME_IS_PROPERTY_BOX(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_PROPERTY_BOX))
+-#define GNOME_IS_PROPERTY_BOX_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_PROPERTY_BOX))
+-#define GNOME_PROPERTY_BOX_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_PROPERTY_BOX, GnomePropertyBoxClass))
++#define GNOME_PROPERTY_BOX(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_PROPERTY_BOX, GnomePropertyBox))
++#define GNOME_PROPERTY_BOX_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_PROPERTY_BOX, GnomePropertyBoxClass))
++#define GNOME_IS_PROPERTY_BOX(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_PROPERTY_BOX))
++#define GNOME_IS_PROPERTY_BOX_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_PROPERTY_BOX))
++#define GNOME_PROPERTY_BOX_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_PROPERTY_BOX, GnomePropertyBoxClass))
+ 
+ /*the flag used on the notebook pages to see if a change happened on a certain page or not*/
+ #define GNOME_PROPERTY_BOX_DIRTY	"gnome_property_box_dirty"
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-scores.c libgnomeui-2.23.4.new/libgnomeui/gnome-scores.c
+--- libgnomeui-2.23.4/libgnomeui/gnome-scores.c	2008-05-29 18:37:09.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-scores.c	2008-08-06 14:11:33.003686287 +0200
+@@ -62,7 +62,7 @@
+ /**
+  * gnome_scores_get_type:
+  *
+- * Returns the GtkType for the GnomeScores widget
++ * Returns the GType for the GnomeScores widget
+  */
+ GNOME_CLASS_BOILERPLATE (GnomeScores, gnome_scores,
+ 			 GtkDialog, GTK_TYPE_DIALOG)
+diff -ur libgnomeui-2.23.4/libgnomeui/gnome-scores.h libgnomeui-2.23.4.new/libgnomeui/gnome-scores.h
+--- libgnomeui-2.23.4/libgnomeui/gnome-scores.h	2008-05-29 18:37:10.000000000 +0200
++++ libgnomeui-2.23.4.new/libgnomeui/gnome-scores.h	2008-08-06 14:10:58.677695914 +0200
+@@ -54,11 +54,11 @@
+ G_BEGIN_DECLS
+ 
+ #define GNOME_TYPE_SCORES            (gnome_scores_get_type ())
+-#define GNOME_SCORES(obj)            (GTK_CHECK_CAST ((obj), GNOME_TYPE_SCORES, GnomeScores))
+-#define GNOME_SCORES_CLASS(klass)    (GTK_CHECK_CLASS_CAST ((klass), GNOME_TYPE_SCORES, GnomeScoresClass))
+-#define GNOME_IS_SCORES(obj)         (GTK_CHECK_TYPE ((obj), GNOME_TYPE_SCORES))
+-#define GNOME_IS_SCORES_CLASS(klass) (GTK_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_SCORES))
+-#define GNOME_SCORES_GET_CLASS(obj)  (GTK_CHECK_GET_CLASS ((obj), GNOME_TYPE_SCORES, GnomeScoresClass))
++#define GNOME_SCORES(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), GNOME_TYPE_SCORES, GnomeScores))
++#define GNOME_SCORES_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), GNOME_TYPE_SCORES, GnomeScoresClass))
++#define GNOME_IS_SCORES(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), GNOME_TYPE_SCORES))
++#define GNOME_IS_SCORES_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), GNOME_TYPE_SCORES))
++#define GNOME_SCORES_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), GNOME_TYPE_SCORES, GnomeScoresClass))
+ 
+ typedef struct _GnomeScores        GnomeScores;
+ typedef struct _GnomeScoresPrivate GnomeScoresPrivate;
