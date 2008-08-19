@@ -5,14 +5,12 @@
 Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.23.4
+Version:	2.23.90
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.23/%{name}-%{version}.tar.bz2
-# Source0-md5:	dedaaa47340fdacd91286dacdd4ab01b
-Patch0:		%{name}-gdestroynotify.patch
-Patch1:		%{name}-gtype.patch
+# Source0-md5:	310ede3d7fd6dbdb0f53bfa7af46f09a
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.22.0
 BuildRequires:	autoconf >= 2.54
@@ -27,7 +25,7 @@ BuildRequires:	gtk+2-devel >= 2:2.12.8
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libbonoboui-devel >= 2.22.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnome-devel >= 2.23.3
+BuildRequires:	libgnome-devel >= 2.23.5
 BuildRequires:	libgnomecanvas-devel >= 2.20.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libxml2-devel >= 1:2.6.31
@@ -122,8 +120,6 @@ libgnomeui - przykładowe programy.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
 
 %build
 %{?with_apidocs:%{__gtkdocize}}
