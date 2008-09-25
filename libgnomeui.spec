@@ -5,27 +5,27 @@
 Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.22.1
-Release:	2
+Version:	2.24.0
+Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.22/%{name}-%{version}.tar.bz2
-# Source0-md5:	5a60405f006e873ba7bc97ec9c8e4c5d
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.24/%{name}-%{version}.tar.bz2
+# Source0-md5:	7d50e1fc4c1ee3c268b26e8dfe7e677b
 URL:		http://www.gnome.org/
-BuildRequires:	GConf2-devel >= 2.22.0
+BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.16.1
-BuildRequires:	gnome-keyring-devel >= 2.22.0
-BuildRequires:	gnome-vfs2-devel >= 2.22.0
+BuildRequires:	glib2-devel >= 1:2.18.0
+BuildRequires:	gnome-keyring-devel >= 2.24.0
+BuildRequires:	gnome-vfs2-devel >= 2.24.0
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
 BuildRequires:	gtk+2-devel >= 2:2.12.8
-BuildRequires:	intltool >= 0.37.0
-BuildRequires:	libbonoboui-devel >= 2.22.0
+BuildRequires:	intltool >= 0.40.0
+BuildRequires:	libbonoboui-devel >= 2.24.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
-BuildRequires:	libgnome-devel >= 2.22.0
+BuildRequires:	libgnome-devel >= 2.24.0
 BuildRequires:	libgnomecanvas-devel >= 2.20.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libxml2-devel >= 1:2.6.31
@@ -36,9 +36,9 @@ BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	xorg-lib-libSM-devel
 Requires:	gtk+2 >= 2:2.12.8
-Requires:	gnome-keyring-libs >= 2.22.0
-Requires:	gnome-vfs2-libs >= 2.22.0
-Requires:	libbonoboui >= 2.22.0
+Requires:	gnome-keyring-libs >= 2.24.0
+Requires:	gnome-vfs2-libs >= 2.24.0
+Requires:	libbonoboui >= 2.24.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -62,11 +62,11 @@ Summary:	Headers for libgnomeui
 Summary(pl.UTF-8):	Pliki nagłówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	GConf2-devel >= 2.22.0
-Requires:	gnome-keyring-devel >= 2.22.0
-Requires:	gnome-vfs2-devel >= 2.22.0
+Requires:	GConf2-devel >= 2.24.0
+Requires:	gnome-keyring-devel >= 2.24.0
+Requires:	gnome-vfs2-devel >= 2.24.0
 Requires:	gtk+2-devel >= 2:2.12.8
-Requires:	libbonoboui-devel >= 2.22.0
+Requires:	libbonoboui-devel >= 2.24.0
 Requires:	libglade2-devel >= 1:2.6.2
 Requires:	libjpeg-devel
 Requires:	popt-devel >= 1.5
@@ -128,6 +128,7 @@ libgnomeui - przykładowe programy.
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--%{?with_apidocs:en}%{!?with_apidocs:dis}able-gtk-doc \
@@ -167,8 +168,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}-2.0.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog MAINTAINERS NEWS README
-%attr(755,root,root) %{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.so
-%attr(755,root,root) %{_libdir}/gtk-2.0/2.*/filesystems/libgio.so
 %attr(755,root,root) %{_libdir}/libgnomeui-2.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libgnomeui-2.so.0
 %attr(755,root,root) %{_libdir}/libglade/2.0/libgnome.so
