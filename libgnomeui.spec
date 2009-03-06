@@ -5,12 +5,12 @@
 Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.24.0
-Release:	2
+Version:	2.24.1
+Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.24/%{name}-%{version}.tar.bz2
-# Source0-md5:	7d50e1fc4c1ee3c268b26e8dfe7e677b
+# Source0-md5:	8e7d36dd1decfcf5cc4d5cb93bc4d217
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.54
@@ -144,7 +144,7 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/gnome/help,%{_examplesdir}/%{name}-%{vers
 	pkgconfigdir=%{_pkgconfigdir}
 
 # not supported by glibc
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/ps
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/{la,ps}
 
 cp demos/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
