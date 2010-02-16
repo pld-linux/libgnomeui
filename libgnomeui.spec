@@ -28,7 +28,6 @@ BuildRequires:	libbonoboui-devel >= 2.24.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnome-devel >= 2.24.0
 BuildRequires:	libgnomecanvas-devel >= 2.20.0
-BuildRequires:	libjpeg-devel
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	perl-base
