@@ -5,12 +5,12 @@
 Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.24.2
-Release:	6
+Version:	2.24.3
+Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.24/%{name}-%{version}.tar.bz2
-# Source0-md5:	d455674fa1a477903dbfcf603f060172
+# Source0-md5:	ceab6f4370581d1a03c09f15cc103099
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.54
@@ -121,6 +121,9 @@ libgnomeui - przykładowe programy.
 %prep
 %setup -q
 
+sed -i -e 's/^en@shaw//' po/LINGUAS
+rm -f po/en@shaw.po
+
 %build
 %{?with_apidocs:%{__gtkdocize}}
 %{__glib_gettextize}
@@ -131,6 +134,7 @@ libgnomeui - przykładowe programy.
 %{__autoheader}
 %{__automake}
 %configure \
+	--disable-silent-rules \
 	--%{?with_apidocs:en}%{!?with_apidocs:dis}able-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
