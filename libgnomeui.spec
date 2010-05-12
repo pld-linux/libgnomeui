@@ -19,7 +19,6 @@ BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.18.0
 BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-keyring-devel >= 2.24.0
 BuildRequires:	gnome-vfs2-devel >= 2.24.0
 BuildRequires:	gtk+2-devel >= 2:2.12.8
 %{?with_apidocs:BuildRequires:	gtk-doc >= 1.8}
@@ -27,6 +26,7 @@ BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libbonoboui-devel >= 2.24.0
 BuildRequires:	libglade2-devel >= 1:2.6.2
 BuildRequires:	libgnome-devel >= 2.24.0
+BuildRequires:	libgnome-keyring-devel >= 2.24.0
 BuildRequires:	libgnomecanvas-devel >= 2.20.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.31
