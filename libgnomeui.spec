@@ -115,7 +115,7 @@ Group:		X11/Development/Libraries
 %description examples
 libgnomeui - example programs.
 
-%description examples
+%description examples -l pl.UTF-8
 libgnomeui - przykładowe programy.
 
 %prep
