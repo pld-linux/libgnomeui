@@ -5,12 +5,12 @@
 Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
-Version:	2.24.4
+Version:	2.24.5
 Release:	1
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.24/%{name}-%{version}.tar.bz2
-# Source0-md5:	f8f68600f26832d3d24b7d7d99d050b9
+# Source0-md5:	d4bb506b1916015323928faab5aa708b
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.54
@@ -149,14 +149,14 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/gnome/help,%{_examplesdir}/%{name}-%{vers
 
 cp demos/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-# no static modules and *.la for libglade or vfs modules
-rm -f $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a}
-rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.*/filesystems/libgnome-vfs.{la,a}
-rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/2.*/filesystems/libgio.{la,a}
+# no static modules and *.la for libglade
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a}
 
 %if %{without apidocs}
 rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}/libgnomeui
 %endif
+
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %find_lang %{name}-2.0
 
@@ -178,7 +178,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_includedir}/libgnomeui-2.0
 %attr(755,root,root) %{_libdir}/libgnomeui-2.so
-%{_libdir}/libgnomeui-2.la
 %{_pkgconfigdir}/libgnomeui-2.0.pc
 
 %files static
