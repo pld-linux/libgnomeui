@@ -6,7 +6,7 @@ Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.24.5
-Release:	1
+Release:	2
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.24/%{name}-%{version}.tar.bz2
@@ -35,7 +35,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	xorg-lib-libSM-devel
-Requires:	gnome-keyring-libs >= 2.24.0
+Requires:	libgnome-keyring >= 2.24.0
 Requires:	gnome-vfs2-libs >= 2.24.0
 Requires:	gtk+2 >= 2:2.12.8
 Requires:	libbonoboui >= 2.24.0
