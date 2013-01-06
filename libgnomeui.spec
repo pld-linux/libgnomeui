@@ -6,7 +6,7 @@ Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.24.5
-Release:	2
+Release:	3
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.24/%{name}-%{version}.tar.bz2
@@ -121,9 +121,6 @@ libgnomeui - przykładowe programy.
 %prep
 %setup -q
 
-sed -i -e 's/^en@shaw//' po/LINGUAS
-rm -f po/en@shaw.po
-
 %build
 %{?with_apidocs:%{__gtkdocize}}
 %{__glib_gettextize}
@@ -151,12 +148,13 @@ cp demos/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 # no static modules and *.la for libglade
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %if %{without apidocs}
 rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}/libgnomeui
 %endif
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+%{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/{sr@ije,sr@ijekavian}
 
 %find_lang %{name}-2.0
 
