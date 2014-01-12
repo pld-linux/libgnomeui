@@ -1,6 +1,7 @@
 #
 # Conditional build:
 %bcond_without	apidocs		# disable gtk-doc
+%bcond_without	static_libs	# static library
 #
 Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
@@ -17,6 +18,7 @@ BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel
+BuildRequires:	gdk-pixbuf2-devel >= 2.12.0
 BuildRequires:	glib2-devel >= 1:2.18.0
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-vfs2-devel >= 2.24.0
@@ -30,15 +32,25 @@ BuildRequires:	libgnome-keyring-devel >= 2.24.0
 BuildRequires:	libgnomecanvas-devel >= 2.20.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.31
+BuildRequires:	pango-devel >= 1:1.1.2
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
 BuildRequires:	rpmbuild(macros) >= 1.197
+BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
-Requires:	libgnome-keyring >= 2.24.0
+BuildRequires:	xorg-lib-libX11-devel
+Requires:	GConf2-libs >= 2.24.0
+Requires:	gdk-pixbuf2 >= 2.12.0
+Requires:	glib2 >= 1:2.18.0
 Requires:	gnome-vfs2-libs >= 2.24.0
 Requires:	gtk+2 >= 2:2.12.8
 Requires:	libbonoboui >= 2.24.0
+Requires:	libgnome-keyring >= 2.24.0
+Requires:	libgnome-libs >= 2.24.0
+Requires:	libbonoboui >= 2.24.0
+Requires:	libxml2 >= 1:2.6.31
+Requires:	popt >= 1.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -63,37 +75,36 @@ Summary(pl.UTF-8):	Pliki nagłówkowe libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	GConf2-devel >= 2.24.0
+Requires:	gdk-pixbuf2-devel >= 2.12.0
+Requires:	glib2-devel >= 1:2.18.0
 Requires:	gnome-vfs2-devel >= 2.24.0
 Requires:	gtk+2-devel >= 2:2.12.8
 Requires:	libbonoboui-devel >= 2.24.0
 Requires:	libglade2-devel >= 1:2.6.2
 Requires:	libgnome-keyring-devel >= 2.24.0
-Requires:	libjpeg-devel
+Requires:	libgnomecanvas-devel >= 2.20.0
 Requires:	popt-devel >= 1.5
 Requires:	xorg-lib-libSM-devel
 
 %description devel
-GNOME (GNU Network Object Model Environment) is a user-friendly set of
-GUI applications and desktop tools to be used in conjunction with a
-window manager for the X Window System. The libgnomeui-devel package
-includes the libraries and include files that you will need to use
-libgnomeui.
+This package includes the header files that you will need for
+libgnomeui applications development.
 
 %description devel -l pl.UTF-8
 Ten pakiet zawiera pliki nagłówkowe potrzebne do kompilacji programów
 używających libgnomeui.
 
 %package static
-Summary:	Static libgnomeui libraries
-Summary(pl.UTF-8):	Statyczne biblioteki libgnomeui
+Summary:	Static libgnomeui library
+Summary(pl.UTF-8):	Statyczna biblioteka libgnomeui
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
-Static version of libgnomeui libraries.
+Static version of libgnomeui library.
 
 %description static -l pl.UTF-8
-Statyczna wersja bibliotek libgnomeui.
+Statyczna wersja biblioteki libgnomeui.
 
 %package apidocs
 Summary:	libgnomeui API documentation
@@ -132,7 +143,8 @@ libgnomeui - przykładowe programy.
 %{__automake}
 %configure \
 	--disable-silent-rules \
-	--%{?with_apidocs:en}%{!?with_apidocs:dis}able-gtk-doc \
+	%{!?with_static_libs:--disable-static} \
+	--enable-gtk-doc%{!?with_apidocs:=no} \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
@@ -147,8 +159,12 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/gnome/help,%{_examplesdir}/%{name}-%{vers
 cp demos/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 # no static modules and *.la for libglade
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.{la,a}
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+# libraries .la obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/lib*.la \
+	$RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.la
+%if %{with static_libs}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libglade/2.0/*.a
+%endif
 
 %if %{without apidocs}
 rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}/libgnomeui
@@ -178,9 +194,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libgnomeui-2.so
 %{_pkgconfigdir}/libgnomeui-2.0.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgnomeui-2.a
+%endif
 
 %if %{with apidocs}
 %files apidocs
