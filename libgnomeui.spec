@@ -12,6 +12,7 @@ License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.24/%{name}-%{version}.tar.bz2
 # Source0-md5:	d4bb506b1916015323928faab5aa708b
+Patch0:		format-security.patch
 URL:		http://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.54
@@ -131,6 +132,7 @@ libgnomeui - przykładowe programy.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{?with_apidocs:%{__gtkdocize}}

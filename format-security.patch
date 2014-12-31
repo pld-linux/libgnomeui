@@ -1,0 +1,20 @@
+--- libgnomeui-2.24.5/libgnomeui/gnome-thumbnail.c~	2010-03-29 10:48:34.000000000 +0000
++++ libgnomeui-2.24.5/libgnomeui/gnome-thumbnail.c	2014-12-31 18:36:43.725812339 +0000
+@@ -863,7 +863,7 @@
+     }
+   close (tmp_fd);
+   
+-  g_snprintf (mtime_str, 21, "%ld",  original_mtime);
++  g_snprintf (mtime_str, 21, "%ld",  (long)original_mtime);
+   width = gdk_pixbuf_get_option (thumbnail, "tEXt::Thumb::Image::Width");
+   height = gdk_pixbuf_get_option (thumbnail, "tEXt::Thumb::Image::Height");
+ 
+@@ -970,7 +970,7 @@
+     }
+   close (tmp_fd);
+   
+-  g_snprintf (mtime_str, 21, "%ld",  mtime);
++  g_snprintf (mtime_str, 21, "%ld",  (long)mtime);
+   pixbuf = gdk_pixbuf_new (GDK_COLORSPACE_RGB, TRUE, 8, 1, 1);
+   saved_ok  = gdk_pixbuf_save (pixbuf,
+ 			       tmp_path,
