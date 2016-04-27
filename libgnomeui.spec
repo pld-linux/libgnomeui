@@ -2,12 +2,12 @@
 # Conditional build:
 %bcond_without	apidocs		# disable gtk-doc
 %bcond_without	static_libs	# static library
-#
+
 Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.24.5
-Release:	4
+Release:	5
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.24/%{name}-%{version}.tar.bz2
@@ -18,8 +18,8 @@ BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	gettext-tools
 BuildRequires:	gdk-pixbuf2-devel >= 2.12.0
+BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 1:2.18.0
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-vfs2-devel >= 2.24.0
@@ -49,7 +49,6 @@ Requires:	gtk+2 >= 2:2.12.8
 Requires:	libbonoboui >= 2.24.0
 Requires:	libgnome-keyring >= 2.24.0
 Requires:	libgnome-libs >= 2.24.0
-Requires:	libbonoboui >= 2.24.0
 Requires:	libxml2 >= 1:2.6.31
 Requires:	popt >= 1.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -112,6 +111,9 @@ Summary:	libgnomeui API documentation
 Summary(pl.UTF-8):	Dokumentacja API libgnomeui
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 libgnomeui API documentation.
@@ -123,6 +125,9 @@ Dokumentacja API libgnomeui.
 Summary:	libgnomeui - example programs
 Summary(pl.UTF-8):	libgnomeui - przykładowe programy
 Group:		X11/Development/Libraries
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description examples
 libgnomeui - example programs.
@@ -172,7 +177,7 @@ cp demos/*.c $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 rm -rf $RPM_BUILD_ROOT%{_gtkdocdir}/libgnomeui
 %endif
 
-%{__mv} $RPM_BUILD_ROOT%{_datadir}/locale/{sr@ije,sr@ijekavian}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{sr@ije,sr@ijekavian}
 
 %find_lang %{name}-2.0
 
