@@ -111,9 +111,7 @@ Summary:	libgnomeui API documentation
 Summary(pl.UTF-8):	Dokumentacja API libgnomeui
 Group:		Documentation
 Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description apidocs
 libgnomeui API documentation.
@@ -125,9 +123,7 @@ Dokumentacja API libgnomeui.
 Summary:	libgnomeui - example programs
 Summary(pl.UTF-8):	libgnomeui - przykładowe programy
 Group:		X11/Development/Libraries
-%if "%{_rpmversion}" >= "5"
 BuildArch:	noarch
-%endif
 
 %description examples
 libgnomeui - example programs.
