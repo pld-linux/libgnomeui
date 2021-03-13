@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_without	apidocs		# disable gtk-doc
+%bcond_without	apidocs		# gtk-doc based API documentation
 %bcond_without	static_libs	# static library
 
 Summary:	GNOME base GUI library
@@ -10,10 +10,10 @@ Version:	2.24.5
 Release:	5
 License:	LGPL v2+
 Group:		X11/Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.24/%{name}-%{version}.tar.bz2
+Source0:	https://download.gnome.org/sources/libgnomeui/2.24/%{name}-%{version}.tar.bz2
 # Source0-md5:	d4bb506b1916015323928faab5aa708b
 Patch0:		format-security.patch
-URL:		http://www.gnome.org/
+URL:		https://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.9
@@ -37,6 +37,7 @@ BuildRequires:	pango-devel >= 1:1.1.2
 BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	popt-devel >= 1.5
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	xorg-lib-libICE-devel
 BuildRequires:	xorg-lib-libSM-devel
@@ -135,6 +136,8 @@ libgnomeui - przykładowe programy.
 %setup -q
 %patch0 -p1
 
+iconv -f iso-8859-1 -t utf-8 libgnomeui/gnome-scores.h -o libgnomeui/gnome-scores.h
+
 %build
 %{?with_apidocs:%{__gtkdocize}}
 %{__glib_gettextize}
@@ -206,7 +209,7 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
-%{_gtkdocdir}/%{name}
+%{_gtkdocdir}/libgnomeui
 %endif
 
 %files examples
