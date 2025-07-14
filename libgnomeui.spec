@@ -134,7 +134,7 @@ libgnomeui - przykładowe programy.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 iconv -f iso-8859-1 -t utf-8 libgnomeui/gnome-scores.h -o libgnomeui/gnome-scores.h
 
