@@ -7,12 +7,13 @@ Summary:	GNOME base GUI library
 Summary(pl.UTF-8):	Podstawowa biblioteka GUI GNOME
 Name:		libgnomeui
 Version:	2.24.5
-Release:	5
+Release:	6
 License:	LGPL v2+
 Group:		X11/Libraries
 Source0:	https://download.gnome.org/sources/libgnomeui/2.24/%{name}-%{version}.tar.bz2
 # Source0-md5:	d4bb506b1916015323928faab5aa708b
 Patch0:		format-security.patch
+Patch1:		incompatible-pointer-types.patch
 URL:		https://www.gnome.org/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf >= 2.54
@@ -135,6 +136,7 @@ libgnomeui - przykładowe programy.
 %prep
 %setup -q
 %patch -P0 -p1
+%patch -P1 -p1
 
 iconv -f iso-8859-1 -t utf-8 libgnomeui/gnome-scores.h -o libgnomeui/gnome-scores.h
 

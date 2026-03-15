@@ -1,0 +1,11 @@
+--- libgnomeui-2.24.5/test-gnome/testgnome.c.orig	2011-01-31 14:57:07.000000000 +0000
++++ libgnomeui-2.24.5/test-gnome/testgnome.c	2026-03-15 00:00:00.000000000 +0000
+@@ -1021,7 +1021,7 @@
+ }
+
+ static void
+-create_app_helper (GtkWidget *widget, gpointer data)
++create_app_helper (void)
+ {
+ 	GtkWidget *app;
+ 	GtkWidget *vbox;
